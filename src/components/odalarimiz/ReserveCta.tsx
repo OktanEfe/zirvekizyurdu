@@ -8,13 +8,11 @@ export default function CtaBanner() {
         <Reveal>
           <div className="relative overflow-hidden rounded-3xl bg-slate-950 px-6 py-12 text-white shadow-2xl sm:px-12 sm:py-16 border border-slate-800">
             
-            {/* Arka Plan Glow Işık Katmanları (Gemini / Premium Mor-Mavi Glow) */}
             <div className="pointer-events-none absolute -left-20 -top-20 h-80 w-80 rounded-full bg-brand-600/30 blur-[120px]" />
             <div className="pointer-events-none absolute -right-20 -bottom-20 h-80 w-80 rounded-full bg-purple-600/30 blur-[120px]" />
 
             <div className="relative z-10 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
               
-              {/* Sol Taraf: Tipografi ve Başlık */}
               <div className="max-w-2xl space-y-4">
                 <div className="inline-flex items-center gap-2 rounded-full border border-purple-400/30 bg-purple-500/10 px-3.5 py-1 text-xs font-semibold text-purple-300 backdrop-blur-md">
                   <span className="h-1.5 w-1.5 rounded-full bg-purple-400 animate-pulse" />
@@ -30,10 +28,8 @@ export default function CtaBanner() {
                 </p>
               </div>
 
-              {/* Sağ Taraf: Premium İletişim Butonları */}
               <div className="flex flex-col gap-3.5 sm:flex-row sm:items-center shrink-0">
                 
-                {/* Telefon Butonu (Primary Action) */}
                 <a
                   href="tel:+905382123011"
                   className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-white px-7 py-3.5 text-sm font-bold text-slate-950 shadow-lg transition-all duration-300 hover:bg-slate-100 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
@@ -44,7 +40,6 @@ export default function CtaBanner() {
                   <span>Hemen Ara</span>
                 </a>
 
-                {/* WhatsApp Butonu (Glassmorphism Effect) */}
                 <a
                   href="https://wa.me/905382123011"
                   target="_blank"

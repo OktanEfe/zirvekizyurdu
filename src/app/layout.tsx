@@ -1,17 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import Header from "@/components/shared/Header";
 import PageTransition from "@/components/shared/PageTransition";
 import Footer from "@/components/shared/Footer";
 import WhatsappButton from "@/components/shared/WhatsappButton";
 import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-  weight: ["400", "500", "600", "700"],
-});
 
 export const metadata: Metadata = {
   title: "Zirve Kız Yurdu",
@@ -20,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="tr" className={`${inter.variable} h-full`}>
+    <html lang="tr" className="h-full">
       <body className="min-h-full flex min-h-screen flex-col font-sans antialiased">
         <Header />
         <main className="flex-1">

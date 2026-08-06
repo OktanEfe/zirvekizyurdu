@@ -16,7 +16,7 @@ export default function LocationMap() {
                 width="100%"
                 height="520"
                 loading="lazy"
-                className="border-0"
+                className="border-0 h-[320px] w-full sm:h-[420px] lg:h-[520px]"
                 src={mapSrc}
               />
             </div>

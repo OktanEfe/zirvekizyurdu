@@ -8,7 +8,6 @@ export default function RoomGrid() {
     <section className="bg-slate-100 py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
-        {/* Header */}
         <Reveal>
           <div className="flex flex-col items-start justify-between gap-6 border-b border-slate-300 pb-10 md:flex-row md:items-end">
             <div className="max-w-2xl space-y-3">
@@ -26,7 +25,6 @@ export default function RoomGrid() {
           </div>
         </Reveal>
 
-        {/* Yüksek Kontrastlı Koyu Kart Düzeni */}
         <div className="mt-12 space-y-8">
           {allRooms.map((room, index) => {
             const isEven = index % 2 === 0;
@@ -36,7 +34,6 @@ export default function RoomGrid() {
                 <article className="group relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900 text-white shadow-xl transition-all duration-300 hover:border-blue-500 hover:shadow-2xl">
                   <div className="grid gap-0 lg:grid-cols-12 lg:items-stretch">
                     
-                    {/* Görsel Alanı */}
                     <div
                       className={`relative min-h-[320px] overflow-hidden bg-slate-950 lg:col-span-7 lg:min-h-[440px] ${
                         isEven ? "lg:order-1" : "lg:order-2"
@@ -48,10 +45,8 @@ export default function RoomGrid() {
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
-                      {/* Görsel Üzeri Dark Overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80" />
 
-                      {/* Kapasite Etiketi */}
                       <div className="absolute left-6 top-6">
                         <span className="rounded-full bg-slate-950/90 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-blue-400 border border-slate-700 backdrop-blur-md shadow-lg">
                           {room.capacity || "1-4 Kişilik"}
@@ -59,7 +54,6 @@ export default function RoomGrid() {
                       </div>
                     </div>
 
-                    {/* İçerik Alanı */}
                     <div
                       className={`flex flex-col justify-between p-8 lg:col-span-5 lg:p-12 ${
                         isEven ? "lg:order-2" : "lg:order-1"

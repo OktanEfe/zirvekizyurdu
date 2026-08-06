@@ -1,57 +1,52 @@
+function PhoneIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-6 w-6"
+    >
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z" />
+    </svg>
+  );
+}
+
+function WhatsappIcon() {
+  return (
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.13c-.24.68-1.4 1.3-1.93 1.35-.5.05-1.05.24-3.53-.74-2.98-1.18-4.86-4.2-5-4.4-.15-.19-1.2-1.6-1.2-3.05 0-1.45.76-2.16 1.03-2.46.27-.3.6-.37.8-.37.2 0 .4 0 .58.01.19.01.44-.07.68.53.25.6.85 2.08.92 2.23.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.61.17.3.76 1.26 1.63 2.04 1.12 1 2.06 1.32 2.36 1.47.3.15.48.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.68-.15.27.1 1.75.82 2.05.97.3.15.5.22.57.35.08.13.08.75-.16 1.43z" />
+    </svg>
+  );
+}
+
 export default function WhatsappButton() {
   return (
-    <aside aria-label="Hızlı İletişim" className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3.5">
-      {/* Telefon Butonu */}
+    <>
       <a
         href="tel:+905382123011"
-        className="group relative flex items-center justify-center rounded-full bg-slate-900 p-3.5 text-white shadow-xl ring-1 ring-white/10 transition-all duration-300 hover:scale-105 hover:bg-slate-800 hover:shadow-2xl active:scale-95"
         aria-label="Telefon ile Ulaşın"
+        style={{ bottom: "calc(1rem + env(safe-area-inset-bottom))" }}
+        className="fixed left-4 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-red-600 text-white shadow-lg shadow-red-600/30 transition-all duration-300 hover:bg-red-700 active:scale-[0.98] sm:left-6"
       >
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="h-5 w-5 transition-transform duration-300 group-hover:rotate-12"
-        >
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.12.82.36 1.62.72 2.38a2 2 0 0 1-.45 2.11L9.37 10.37a16 16 0 0 0 6.24 6.24l1.16-1.16a2 2 0 0 1 2.11-.45c.76.36 1.56.6 2.38.72A2 2 0 0 1 22 16.92Z" />
-        </svg>
-
-        {/* Tooltip Label */}
-        <span className="pointer-events-none absolute right-full mr-3 whitespace-nowrap rounded-lg bg-slate-900 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-100 opacity-0 shadow-lg ring-1 ring-white/10 transition-all duration-300 group-hover:opacity-100">
-          Hemen Arayın
-        </span>
+        <span className="absolute inset-0 -z-10 rounded-full bg-red-600/30 animate-ping" />
+        <PhoneIcon />
       </a>
 
-      {/* WhatsApp Butonu */}
       <a
         href="https://wa.me/905382123011"
         target="_blank"
-        rel="noreferrer"
-        className="group relative flex items-center justify-center rounded-full bg-emerald-500 p-3.5 text-white shadow-xl shadow-emerald-500/20 transition-all duration-300 hover:scale-105 hover:bg-emerald-600 hover:shadow-2xl hover:shadow-emerald-500/30 active:scale-95"
+        rel="noreferrer noopener"
         aria-label="WhatsApp Destek Hattı"
+        style={{ bottom: "calc(1rem + env(safe-area-inset-bottom))" }}
+        className="fixed right-4 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-brand-600 text-white shadow-lg shadow-brand-600/30 transition-all duration-300 hover:bg-brand-700 active:scale-[0.98] sm:right-6"
       >
-        {/* Pulse / Canlılık Halkası */}
-        <span className="absolute inset-0 -z-10 animate-ping rounded-full bg-emerald-500 opacity-40 duration-1000" />
-
-        {/* Orijinal WhatsApp SVG İkonu */}
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          className="h-5 w-5 transition-transform duration-300 group-hover:rotate-12"
-        >
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c0-5.445 4.43-9.874 9.876-9.874 2.634 0 5.11 1.028 6.97 2.89 1.861 1.86 2.887 4.334 2.886 6.968 0 5.447-4.432 9.877-9.873 9.877m0-18.067c-4.514 0-8.188 3.673-8.188 8.19 0 1.442.377 2.85 1.096 4.091l.17.294-.65 2.379 2.433-.638.28.166a8.146 8.146 0 004.857 1.396h.004c4.513 0 8.187-3.674 8.188-8.192 0-2.185-.85-4.238-2.396-5.783A8.134 8.134 0 0012.051 3.718" />
-        </svg>
-
-        {/* Tooltip Label */}
-        <span className="pointer-events-none absolute right-full mr-3 whitespace-nowrap rounded-lg bg-slate-900 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-emerald-400 opacity-0 shadow-lg ring-1 ring-white/10 transition-all duration-300 group-hover:opacity-100">
-          WhatsApp Destek
-        </span>
+        <span className="absolute inset-0 -z-10 rounded-full bg-brand-600/30 animate-ping" />
+        <WhatsappIcon />
       </a>
-    </aside>
+    </>
   );
 }
