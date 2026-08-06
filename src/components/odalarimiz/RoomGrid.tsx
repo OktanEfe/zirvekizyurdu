@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/shared/Reveal";
 import { allRooms } from "@/lib/data";
@@ -41,10 +42,11 @@ export default function RoomGrid() {
                         isEven ? "lg:order-1" : "lg:order-2"
                       }`}
                     >
-                      <img
+                      <Image
                         src={room.image || "/images/room-placeholder.jpg"}
                         alt={room.title}
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                       {/* Görsel Üzeri Dark Overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80" />
