@@ -1,85 +1,71 @@
-"use client";
-
-import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import Reveal from "@/components/shared/Reveal";
+import { galleryPreviewImages } from "@/lib/data";
 
-const dynamicWords = ["en konforlu", "en güvenli", "en modern", "en ayrıcalıklı"];
-
-export default function Hero() {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % dynamicWords.length);
-    }, 2500);
-    return () => clearInterval(interval);
-  }, []);
-
+export default function GalleryPreview() {
   return (
-    <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-white text-slate-900">
-      
-      {/* Görseldeki Gibi Merkezdeki Mavi Radial Glow / Parlama Efekti */}
-      <div 
-        aria-hidden="true" 
-        className="pointer-events-none absolute inset-0 flex items-center justify-center"
-      >
-        <div className="h-[500px] w-[500px] rounded-full bg-blue-100/70 blur-[100px] sm:h-[650px] sm:w-[650px] sm:blur-[130px]" />
-      </div>
-
-      {/* Ana İçerik Konteynırı */}
-      <div className="relative z-10 mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
+    <section className="bg-mist-50/60 py-16 lg:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
-        {/* Kırmızı Vurgulu Kontenjan Uyarısı */}
-        <div className="inline-flex items-center gap-2.5 rounded-full border border-rose-200 bg-rose-50/90 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-rose-600 shadow-sm backdrop-blur-md">
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-rose-400 opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-rose-600" />
-          </span>
-          <span>Yeni Kontenjanlar Açıldı</span>
+        {/* Başlık Alanı & Tipografi */}
+        <div className="text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-3.5 py-1 text-xs font-semibold text-brand-700">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-600" />
+            <span>Galeri</span>
+          </div>
+          <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            Yurdumuzdan kareler
+          </h2>
         </div>
 
-        {/* Tipografi ve Dinamik Kelime Geçişi */}
-        <h1 className="mt-8 text-4xl font-extrabold tracking-tight text-slate-950 sm:text-6xl lg:text-7xl leading-[1.15]">
-          Kocaeli’de öğrenciliğin{" "}
-          <span className="inline-grid [grid-template-areas:'stack'] overflow-hidden text-blue-600">
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={dynamicWords[index]}
-                initial={{ y: "100%", opacity: 0 }}
-                animate={{ y: "0%", opacity: 1 }}
-                exit={{ y: "-100%", opacity: 0 }}
-                transition={{ duration: 0.35, ease: "easeInOut" }}
-                className="[grid-area:stack] whitespace-nowrap"
-              >
-                {dynamicWords[index]}
-              </motion.span>
-            </AnimatePresence>
-          </span>{" "}
-          yaşam adresi
-        </h1>
+        {/* Galeri Grid Yapısı */}
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {galleryPreviewImages.map((item, index) => (
+            <Reveal key={item.src} delay={index * 0.08}>
+              <div className="group relative overflow-hidden rounded-2xl bg-slate-900 shadow-sm ring-1 ring-slate-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+                
+                {/* Görsel Katmanı */}
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <Image
+                    src={item.src}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    priority
+                  />
+                  {/* Karartma Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent transition-opacity duration-300 group-hover:opacity-90" />
+                </div>
 
-        {/* Uzun Açıklama Metni */}
-        <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
-          Güvenlik, yüksek konfor ve sosyal imkânları tek bir çatıda buluşturan mimarimizle evinizin sıcaklığını aratmayan bir ortam sunuyoruz. Yeni dönem fırsatlarını kaçırmadan yerinizi ayırtın.
-        </p>
+                {/* Başlık ve Hover İkon Katmanı */}
+                <div className="absolute inset-x-0 bottom-0 p-5 flex items-end justify-between">
+                  <h3 className="text-base font-bold text-white drop-shadow-sm">
+                    {item.title}
+                  </h3>
+                  
+                  {/* Büyüteç / Detay İkonu */}
+                  <div className="flex h-9 w-9 translate-y-2 items-center justify-center rounded-full bg-white/20 text-white opacity-0 backdrop-blur-md transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="11" cy="11" r="8" />
+                      <path d="m21 21-4.35-4.35" />
+                    </svg>
+                  </div>
+                </div>
 
-        {/* Aksiyon Butonları */}
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        {/* Primary Action Button */}
+        <div className="mt-12 flex justify-center">
           <Link
-            href="/iletisim"
-            className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-blue-600 px-8 py-4 text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:bg-blue-700 hover:shadow-blue-600/30 active:scale-[0.98]"
+            href="/galeri"
+            className="inline-flex items-center justify-center rounded-full bg-brand-600 px-8 py-3.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-brand-700 hover:shadow-md hover:shadow-brand-600/20 active:scale-[0.98]"
           >
-            Hemen Başvuru Yap →
-          </Link>
-
-          <Link
-            href="https://wa.me/905382123011"
-            target="_blank"
-            rel="noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white/80 px-8 py-4 text-xs font-bold uppercase tracking-wider text-slate-700 shadow-sm transition-all duration-300 hover:border-emerald-500 hover:bg-emerald-50/50 hover:text-emerald-600 active:scale-[0.98]"
-          >
-            <span>WhatsApp Destek</span>
+            Tüm Galeriyi Gör
           </Link>
         </div>
 

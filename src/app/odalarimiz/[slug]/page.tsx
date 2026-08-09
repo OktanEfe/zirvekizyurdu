@@ -11,8 +11,9 @@ export function generateStaticParams() {
   return allRooms.map((room) => ({ slug: room.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const room = allRooms.find((item) => item.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const room = allRooms.find((item) => item.slug === slug);
   if (!room) {
     return { title: "Oda Bulunamadı - Zirve Kız Yurdu" };
   }
@@ -20,8 +21,9 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   return { title: `${room.title} - Zirve Kız Yurdu` };
 }
 
-export default function RoomDetailPage({ params }: { params: { slug: string } }) {
-  const room = allRooms.find((item) => item.slug === params.slug);
+export default async function RoomDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const room = allRooms.find((item) => item.slug === slug);
 
   if (!room) {
     notFound();
