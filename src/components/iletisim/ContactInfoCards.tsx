@@ -53,7 +53,7 @@ export default function ContactInfoCards() {
     <Reveal>
       <section className="py-20 lg:py-24 bg-mist-50/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* Header */}
+
           <div className="mx-auto max-w-2xl text-center">
             <div className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-3.5 py-1.5 border border-brand-100/80">
               <span className="h-2 w-2 rounded-full bg-brand-600" />
@@ -69,7 +69,6 @@ export default function ContactInfoCards() {
             </p>
           </div>
 
-          {/* Cards Grid */}
           <div className="mt-12 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
             {contacts.map((item) => (
               <a
@@ -80,23 +79,20 @@ export default function ContactInfoCards() {
                 className="group relative flex flex-col justify-between rounded-3xl border border-brand-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-brand-200"
               >
                 <div>
-                  {/* Icon Wrapper */}
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-brand-600 transition-colors duration-300 group-hover:bg-brand-600 group-hover:text-white">
+
+                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-brand-50 text-brand-600 transition-colors duration-300 group-hover:bg-brand-600 group-hover:text-white sm:h-12 sm:w-12">
                     {item.icon}
                   </div>
 
-                  {/* Label */}
                   <p className="mt-6 text-xs font-semibold uppercase tracking-wider text-slate-400 group-hover:text-brand-700 transition-colors">
                     {item.label}
                   </p>
 
-                  {/* Value */}
                   <p className="mt-2 text-sm font-medium leading-relaxed text-slate-900 group-hover:text-brand-900 transition-colors break-words">
                     {item.value}
                   </p>
                 </div>
 
-                {/* Arrow Link Indicator */}
                 <div className="mt-6 flex items-center text-xs font-semibold text-brand-600 transition-all duration-200 group-hover:translate-x-1">
                   <span>İncele / Ulaş</span>
                   <svg

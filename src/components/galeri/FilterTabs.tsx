@@ -12,10 +12,10 @@ type FilterTabsProps = {
 export default function FilterTabs({ active, onChange }: FilterTabsProps) {
   return (
     <div className="bg-white text-slate-900">
-      {/* HERO SECTION */}
+
       <section className="relative overflow-hidden border-b border-slate-100 bg-slate-50/50 py-20 lg:py-28">
         <div className="pointer-events-none absolute -right-20 -top-20 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl" />
-        
+
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="max-w-3xl space-y-4">
@@ -36,7 +36,6 @@ export default function FilterTabs({ active, onChange }: FilterTabsProps) {
         </div>
       </section>
 
-      {/* FILTERS */}
       <section className="pt-12 pb-4">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>

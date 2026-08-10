@@ -41,8 +41,7 @@ export default function ContactForm() {
       <section className="py-20 lg:py-24 bg-mist-50/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-[1.25fr_0.75fr] lg:items-start">
-            
-            {/* Form Kartı */}
+
             <div className="rounded-3xl border border-brand-100 bg-white p-8 sm:p-10 shadow-sm transition-all duration-300 hover:shadow-md">
               <div className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-3.5 py-1.5 border border-brand-100/80">
                 <span className="h-2 w-2 rounded-full bg-brand-600" />
@@ -58,7 +57,7 @@ export default function ContactForm() {
               </p>
 
               <div className="mt-8 space-y-5">
-                {/* Ad Soyad & E-posta Yan Yana (Masaüstü) */}
+
                 <div className="grid gap-5 sm:grid-cols-2">
                   <label className="block">
                     <span className="text-xs font-semibold text-slate-700">Ad Soyad *</span>
@@ -83,7 +82,6 @@ export default function ContactForm() {
                   </label>
                 </div>
 
-                {/* Telefon & Konu Yan Yana */}
                 <div className="grid gap-5 sm:grid-cols-2">
                   <label className="block">
                     <span className="text-xs font-semibold text-slate-700">Telefon *</span>
@@ -119,7 +117,6 @@ export default function ContactForm() {
                   </label>
                 </div>
 
-                {/* Mesaj */}
                 <label className="block">
                   <span className="text-xs font-semibold text-slate-700">Mesajınız *</span>
                   <textarea
@@ -131,7 +128,6 @@ export default function ContactForm() {
                   />
                 </label>
 
-                {/* Butonlar */}
                 <div className="pt-2 flex flex-col gap-3 sm:flex-row">
                   <button
                     type="button"
@@ -158,7 +154,6 @@ export default function ContactForm() {
               </div>
             </div>
 
-            {/* Yan Bilgi Kartı */}
             <div className="flex flex-col justify-between rounded-3xl border border-brand-100 bg-white p-8 sm:p-10 shadow-sm transition-all duration-300 hover:shadow-md">
               <div>
                 <h3 className="text-xl font-bold tracking-tight text-slate-900">
@@ -169,7 +164,7 @@ export default function ContactForm() {
                 </p>
 
                 <div className="mt-8 space-y-4">
-                  {/* Adres */}
+
                   <div className="flex items-start gap-4 rounded-2xl bg-mist-50/80 p-4 border border-brand-100/50">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-brand-600 shadow-sm">
                       <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth="1.8" stroke="currentColor">
@@ -185,7 +180,6 @@ export default function ContactForm() {
                     </div>
                   </div>
 
-                  {/* Telefon */}
                   <div className="flex items-start gap-4 rounded-2xl bg-mist-50/80 p-4 border border-brand-100/50">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-brand-600 shadow-sm">
                       <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth="1.8" stroke="currentColor">
@@ -200,7 +194,6 @@ export default function ContactForm() {
                     </div>
                   </div>
 
-                  {/* E-posta */}
                   <div className="flex items-start gap-4 rounded-2xl bg-mist-50/80 p-4 border border-brand-100/50">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-brand-600 shadow-sm">
                       <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth="1.8" stroke="currentColor">
@@ -217,7 +210,6 @@ export default function ContactForm() {
                 </div>
               </div>
 
-              {/* Güven Vurgusu */}
               <div className="mt-8 rounded-2xl bg-brand-50/60 p-4 border border-brand-100/80 text-xs text-brand-800 flex items-center gap-3">
                 <span className="flex h-2 w-2 shrink-0 rounded-full bg-brand-600 animate-pulse" />
                 <span>Mesajlarınıza ortalama 15 dakika içerisinde dönüş yapıyoruz.</span>

@@ -7,7 +7,7 @@ export default function RoomGrid() {
   return (
     <section className="bg-slate-100 py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         <Reveal>
           <div className="flex flex-col items-start justify-between gap-6 border-b border-slate-300 pb-10 md:flex-row md:items-end">
             <div className="max-w-2xl space-y-3">
@@ -33,7 +33,7 @@ export default function RoomGrid() {
               <Reveal key={room.slug} delay={index * 0.08}>
                 <article className="group relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900 text-white shadow-xl transition-all duration-300 hover:border-blue-500 hover:shadow-2xl">
                   <div className="grid gap-0 lg:grid-cols-12 lg:items-stretch">
-                    
+
                     <div
                       className={`relative min-h-[320px] overflow-hidden bg-slate-950 lg:col-span-7 lg:min-h-[440px] ${
                         isEven ? "lg:order-1" : "lg:order-2"
@@ -74,7 +74,6 @@ export default function RoomGrid() {
                           {room.description}
                         </p>
 
-                        {/* Özellikler Listesi */}
                         {room.features && Array.isArray(room.features) && room.features.length > 0 && (
                           <div className="pt-4 border-t border-slate-800">
                             <ul className="grid grid-cols-2 gap-2.5 text-xs font-medium text-slate-300">
@@ -89,7 +88,6 @@ export default function RoomGrid() {
                         )}
                       </div>
 
-                      {/* Aksiyon Butonu */}
                       <div className="mt-8 border-t border-slate-800 pt-6">
                         <Link
                           href={`/odalarimiz/${room.slug}`}

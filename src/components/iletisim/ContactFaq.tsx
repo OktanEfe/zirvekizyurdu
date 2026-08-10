@@ -12,7 +12,7 @@ export default function ContactFaq() {
     <Reveal>
       <section className="py-20 lg:py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* Header */}
+
           <div className="mx-auto max-w-2xl text-center">
             <div className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-3.5 py-1.5 border border-brand-100/80">
               <span className="h-2 w-2 rounded-full bg-brand-600" />
@@ -28,7 +28,6 @@ export default function ContactFaq() {
             </p>
           </div>
 
-          {/* Accordion Container */}
           <div className="mx-auto mt-12 max-w-3xl space-y-4">
             {contactFaqs.map((item, index) => {
               const isOpen = openIndex === index;
@@ -49,8 +48,7 @@ export default function ContactFaq() {
                       <span className="text-base font-semibold text-slate-900 sm:text-lg">
                         {item.question}
                       </span>
-                      
-                      {/* Plus/Minus Animated Chevron Wrapper */}
+
                       <span
                         className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl transition-all duration-300 ${
                           isOpen

@@ -21,7 +21,6 @@ export default function GalleryGrid({ activeFilter }: GalleryGridProps) {
   const categories = filterMap[activeFilter] ?? filterMap.Tümü;
   const visibleItems = fullGallery.filter((item) => categories.includes(item.category));
 
-  // Lightbox State
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const handleNext = useCallback(() => {
@@ -36,7 +35,6 @@ export default function GalleryGrid({ activeFilter }: GalleryGridProps) {
     }
   }, [selectedIndex, visibleItems.length]);
 
-  // Klavye Kontrolleri
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (selectedIndex === null) return;
@@ -70,16 +68,14 @@ export default function GalleryGrid({ activeFilter }: GalleryGridProps) {
                       priority={index < 4}
                     />
 
-                    {/* Dark Overlay & Hover Etiketi */}
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-80" />
-                    
+
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                       <span className="rounded-full bg-blue-600 px-4 py-2 text-xs font-bold uppercase tracking-wider text-white shadow-lg backdrop-blur-md">
                         Büyüt / İncele
                       </span>
                     </div>
 
-                    {/* Kategori Rozeti */}
                     <div className="absolute left-3 top-3">
                       <span className="rounded-md bg-slate-950/80 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-blue-300 backdrop-blur-md border border-slate-800">
                         {item.category}
@@ -87,7 +83,6 @@ export default function GalleryGrid({ activeFilter }: GalleryGridProps) {
                     </div>
                   </div>
 
-                  {/* Alt Metin Alanı */}
                   <div className="bg-slate-950 p-4 border-t border-slate-800/80">
                     <h3 className="text-sm font-bold tracking-tight text-white transition-colors group-hover:text-blue-400">
                       {item.title}
@@ -103,13 +98,12 @@ export default function GalleryGrid({ activeFilter }: GalleryGridProps) {
         </div>
       </section>
 
-      {/* LIGHTBOX MODAL */}
       {selectedIndex !== null && visibleItems[selectedIndex] && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/95 p-4 backdrop-blur-md"
           onClick={() => setSelectedIndex(null)}
         >
-          {/* Kapat */}
+
           <button
             onClick={() => setSelectedIndex(null)}
             className="absolute right-6 top-6 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-xl font-bold text-white transition-colors hover:bg-white/20"
@@ -118,7 +112,6 @@ export default function GalleryGrid({ activeFilter }: GalleryGridProps) {
             ✕
           </button>
 
-          {/* Sol Ok */}
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -130,7 +123,6 @@ export default function GalleryGrid({ activeFilter }: GalleryGridProps) {
             ‹
           </button>
 
-          {/* Modal Detay Kartı */}
           <div
             className="relative max-h-[90vh] max-w-5xl overflow-hidden rounded-2xl bg-slate-900 shadow-2xl border border-slate-800"
             onClick={(e) => e.stopPropagation()}
@@ -162,7 +154,6 @@ export default function GalleryGrid({ activeFilter }: GalleryGridProps) {
             </div>
           </div>
 
-          {/* Sağ Ok */}
           <button
             onClick={(e) => {
               e.stopPropagation();

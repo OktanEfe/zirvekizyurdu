@@ -46,7 +46,7 @@ export default function RoomCard({ slug, title, tag, image, description, feature
         </ul>
 
         <div className="mt-4">
-          <span className="inline-flex rounded-full border border-brand-200 bg-white px-4 py-2 text-sm font-semibold text-brand-700 transition group-hover:border-brand-600 group-hover:bg-brand-50 group-hover:text-brand-900">
+          <span className="inline-flex rounded-full border border-brand-200 bg-white px-3.5 py-1.5 text-sm font-semibold text-brand-700 transition group-hover:border-brand-600 group-hover:bg-brand-50 group-hover:text-brand-900 sm:px-4 sm:py-2">
             Detayları Gör
           </span>
         </div>

@@ -10,7 +10,7 @@ export default function LocationMap() {
       <section className="py-20 lg:py-24 bg-mist-50/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-stretch">
-            {/* Harita Konteynırı */}
+
             <div className="group relative min-h-[380px] sm:min-h-[460px] lg:min-h-[520px] overflow-hidden rounded-3xl border border-brand-100 bg-white shadow-sm transition-all duration-300 hover:shadow-md">
               <iframe
                 title="Zirve Kız Yurdu Haritası"
@@ -20,14 +20,13 @@ export default function LocationMap() {
                 className="h-full w-full border-0 grayscale-[15%] opacity-95 transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100"
                 src={mapSrc}
               />
-              {/* Yumuşak İç Gölge Efekti */}
+
               <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-brand-900/5" />
             </div>
 
-            {/* Konum Detay Kartı */}
             <div className="flex flex-col justify-between rounded-3xl border border-brand-100/80 bg-white p-8 sm:p-10 shadow-sm transition-all duration-300 hover:shadow-md">
               <div>
-                {/* Rozet */}
+
                 <div className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-3.5 py-1.5 border border-brand-100/60">
                   <span className="h-2 w-2 rounded-full bg-brand-600 animate-pulse" />
                   <span className="text-xs font-semibold uppercase tracking-wider text-brand-700">
@@ -35,13 +34,11 @@ export default function LocationMap() {
                   </span>
                 </div>
 
-                {/* Başlık */}
                 <h2 className="mt-5 text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 leading-snug">
                   Zirve Kız Yurdu&apos;na <br className="hidden sm:inline" />
                   <span className="text-brand-600">Kolay ve Güvenli</span> Ulaşım
                 </h2>
 
-                {/* Özellik Listesi */}
                 <ul className="mt-8 space-y-4">
                   {locationFacts.map((fact, index) => (
                     <li
@@ -74,7 +71,6 @@ export default function LocationMap() {
                 </ul>
               </div>
 
-              {/* Alt Bilgi / Yol Tarifi Butonu */}
               <div className="mt-8 pt-6 border-t border-slate-100">
                 <a
                   href={`https://www.google.com/maps/search/?api=1&query=${query}`}

@@ -27,9 +27,9 @@ const highlights = [
 export default function Intro() {
   return (
     <div className="bg-slate-950 text-white">
-      {/* 1. HERO BANNER KATMANI */}
+
       <section className="relative flex min-h-[440px] w-full items-end overflow-hidden sm:min-h-[500px] lg:min-h-[540px]">
-        {/* Arka Plan Görseli */}
+
         <Image
           src="/hizmetler/hero.jpeg"
           alt="Zirve Kız Yurdu Hizmetler"
@@ -39,14 +39,12 @@ export default function Intro() {
           className="object-cover object-center opacity-30"
         />
 
-        {/* Sofistike Maskeleme & Ambient Glow */}
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/50 to-transparent" />
-        
+
         <div className="pointer-events-none absolute -left-20 top-1/4 h-96 w-96 rounded-full bg-brand-600/20 blur-[140px]" />
         <div className="pointer-events-none absolute right-10 top-1/3 h-80 w-80 rounded-full bg-purple-600/15 blur-[130px]" />
 
-        {/* Hero İçeriği */}
         <div className="relative mx-auto w-full max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
           <Reveal>
             <div className="max-w-3xl space-y-5">
@@ -72,7 +70,6 @@ export default function Intro() {
         </div>
       </section>
 
-      {/* 2. NUMERİK KURUMSAL VURGU ŞERİDİ (İKONSUZ & MİNİMAL) */}
       <section className="border-y border-white/10 bg-slate-900/40 backdrop-blur-md">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal delay={0.1}>

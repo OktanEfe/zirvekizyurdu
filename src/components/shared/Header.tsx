@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -36,15 +36,14 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0  z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-md transition-all">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3.5 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 overflow-visible border-b border-slate-200/80 bg-white/95 backdrop-blur-md transition-all">
+      <div className="mx-auto flex max-w-7xl items-center justify-between overflow-visible px-4 py-3.5 sm:px-6 lg:px-8">
         <Link href="/" className="group flex items-center transition-colors hover:text-brand-600">
-          <div className="relative h-10 w-10 overflow-hidden">
+          <div className="relative -my-11 h-32 w-32 overflow-hidden">
             <Image src="/logo/zirve_logo.png" alt="Zirve Kız Yurdu" fill className="object-contain" />
           </div>
         </Link>
 
-        {/* Desktop Navigation */}
         <nav className="hidden items-center gap-7 md:flex">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
@@ -70,30 +69,27 @@ export default function Header() {
           })}
         </nav>
 
-        {/* Action Buttons */}
         <div className="hidden items-center gap-3 md:flex">
-          {/* Secondary Button Standard: Açık Mavi Outline / Soft Background */}
+
           <a
             href="tel:+905382123011"
-            className="inline-flex items-center gap-2 rounded-full border border-mist-200 bg-mist-50/70 px-4 py-2 text-xs font-semibold text-slate-700 transition-all hover:border-brand-200 hover:bg-mist-100 hover:text-brand-600"
+            className="inline-flex items-center gap-2 rounded-full border border-mist-200 bg-mist-50/70 px-3.5 py-2 text-xs font-semibold text-slate-700 transition-all hover:border-brand-200 hover:bg-mist-100 hover:text-brand-600 lg:px-4 lg:py-2.5"
           >
             <PhoneIcon />
             <span>0538 212 30 11</span>
           </a>
 
-          {/* Primary Button Standard: Dolu Mavi (%20 Brand-600) */}
           <a
             href="https://wa.me/905382123011"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-brand-600 px-4 py-2 text-xs font-semibold text-white shadow-sm transition-all hover:bg-brand-700 hover:shadow-md hover:shadow-brand-600/20 active:scale-[0.98]"
+            className="inline-flex items-center gap-2 rounded-full bg-brand-600 px-3.5 py-2 text-xs font-semibold text-white shadow-sm transition-all hover:bg-brand-700 hover:shadow-md hover:shadow-brand-600/20 active:scale-[0.98] lg:px-4 lg:py-2.5"
           >
             <WhatsappIcon />
             <span>WhatsApp</span>
           </a>
         </div>
 
-        {/* Mobile Menu Button */}
         <button
           type="button"
           className="inline-flex items-center justify-center rounded-lg border border-slate-200 bg-mist-50/50 p-2 text-slate-700 transition-colors hover:bg-mist-100 hover:text-brand-600 md:hidden"
@@ -110,49 +106,56 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile Drawer */}
-      {isOpen ? (
-        <div className="border-t border-slate-200 bg-white/98 backdrop-blur-md md:hidden">
-          <div className="space-y-1 px-4 pt-3 pb-5">
-            {navItems.map((item) => {
-              const isActive = pathname === item.href;
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={
-                    "block rounded-lg px-3.5 py-2.5 text-sm font-medium transition-colors " +
-                    (isActive
-                      ? "bg-mist-100 font-semibold text-brand-600"
-                      : "text-slate-700 hover:bg-mist-50 hover:text-brand-600")
-                  }
-                  onClick={() => setIsOpen(false)}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="overflow-hidden border-t border-brand-100 bg-white md:hidden"
+          >
+            <div className="space-y-1 px-4 pt-3 pb-5">
+              {navItems.map((item) => {
+                const isActive = pathname === item.href;
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={
+                      "block rounded-lg px-3.5 py-2.5 text-sm font-medium transition-colors " +
+                      (isActive
+                        ? "bg-mist-100 font-semibold text-brand-600"
+                        : "text-slate-700 hover:bg-mist-50 hover:text-brand-600")
+                    }
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+              <div className="mt-4 flex flex-col gap-2.5 pt-2 border-t border-slate-100">
+                <a
+                  href="tel:+905382123011"
+                  className="flex items-center justify-center gap-2 rounded-lg border border-mist-200 bg-mist-50 px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-mist-100"
                 >
-                  {item.label}
-                </Link>
-              );
-            })}
-            <div className="mt-4 flex flex-col gap-2.5 pt-2 border-t border-slate-100">
-              <a
-                href="tel:+905382123011"
-                className="flex items-center justify-center gap-2 rounded-lg border border-mist-200 bg-mist-50 px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-mist-100"
-              >
-                <PhoneIcon />
-                <span>0538 212 30 11</span>
-              </a>
-              <a
-                href="https://wa.me/905382123011"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center justify-center gap-2 rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700"
-              >
-                <WhatsappIcon />
-                <span>WhatsApp</span>
-              </a>
+                  <PhoneIcon />
+                  <span>0538 212 30 11</span>
+                </a>
+                <a
+                  href="https://wa.me/905382123011"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-center gap-2 rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700"
+                >
+                  <WhatsappIcon />
+                  <span>WhatsApp</span>
+                </a>
+              </div>
             </div>
-          </div>
-        </div>
-      ) : null}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

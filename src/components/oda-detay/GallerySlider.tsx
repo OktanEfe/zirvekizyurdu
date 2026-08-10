@@ -5,45 +5,19 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 type RoomGalleryProps = {
-  images?: string[];
-  roomTitle?: string;
-  features?: string[];
-  specs?: { label: string; value: string }[];
+  images: string[];
+  roomTitle: string;
+  features: string[];
+  specs: { label: string; value: string }[];
 };
 
-export default function RoomGallery({
-  images = [
-    "/images/room-1.jpg",
-    "/images/room-2.jpg",
-    "/images/room-3.jpg",
-    "/images/room-4.jpg",
-    "/images/room-5.jpg",
-    "/images/room-6.jpg",
-    "/images/room-7.jpg",
-  ],
-  roomTitle = "3 Kişilik Lüks Suit",
-  features = [
-    "Ergonomik Tasarım Çalışma Masaları",
-    "Geniş Hacimli Kişiye Özel Gardırop",
-    "Yüksek Hızlı 1000 Mbps Fiber İnternet",
-    "Oda İçi Lüks Özel Banyo & WC",
-    "Ortopedik Yatak & Antialerjik Nevresim",
-  ],
-  specs = [
-    { label: "Oda Tipi", value: "Lüks Suit" },
-    { label: "Genişlik", value: "28 m²" },
-    { label: "Manzara", value: "Panoramik Doğa" },
-    { label: "Banyo", value: "Özel Mimarisi" },
-  ],
-}: RoomGalleryProps) {
-  // Üstteki sabit sahne için aktif indeks
+export default function RoomGallery({ images, roomTitle, features, specs }: RoomGalleryProps) {
+
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
-  // Alt slider sayfalama indeksi
   const [sliderIndex, setSliderIndex] = useState(0);
   const [direction, setDirection] = useState(1);
 
-  // Fullscreen Lightbox Modal Kontrolü
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImageIndex, setModalImageIndex] = useState(0);
 
@@ -60,14 +34,12 @@ export default function RoomGallery({
     setSliderIndex((prev) => (prev - 1 + totalPages) % totalPages);
   };
 
-  // Alt fotoğrafa tıklandığında Lightbox açma fonksiyonu
   const handleThumbnailClick = (originalIndex: number) => {
-    setActiveImageIndex(originalIndex); // Üstteki resim değişir
-    setModalImageIndex(originalIndex);  // Modal için resim seçilir
-    setIsModalOpen(true);                // Büyütme ekranı açılır
+    setActiveImageIndex(originalIndex);
+    setModalImageIndex(originalIndex);
+    setIsModalOpen(true);
   };
 
-  // Modal içi yönlendirme
   const handleNextModalImage = () => {
     setModalImageIndex((prev) => (prev + 1) % images.length);
   };
@@ -91,7 +63,6 @@ export default function RoomGallery({
     }),
   };
 
-  // Aktif gruptaki 3'lü görseller
   const currentImages = images.slice(
     sliderIndex * itemsPerPage,
     sliderIndex * itemsPerPage + itemsPerPage
@@ -99,11 +70,9 @@ export default function RoomGallery({
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 space-y-6">
-      
-      {/* ÜST BÖLÜM: Sol Ana Görsel (Sabit Yapı) / Sağ Özellikler Paneli */}
+
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8">
-        
-        {/* SOL: Üst Ana Görsel (Tıklama Yok, Sabit Görünüm) */}
+
         <div className="relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-auto lg:col-span-7 h-full min-h-[460px] w-full overflow-hidden rounded-3xl border border-slate-200/80 bg-slate-900 shadow-xl shadow-slate-200/50">
           <AnimatePresence mode="wait">
             <motion.div
@@ -127,7 +96,6 @@ export default function RoomGallery({
 
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 pointer-events-none" />
 
-          {/* Sayaç Rozeti */}
           <div className="absolute bottom-4 left-4 rounded-full border border-white/20 bg-slate-950/60 px-4 py-1.5 text-xs font-semibold text-white backdrop-blur-md shadow-sm">
             <span>
               {activeImageIndex + 1} / {images.length}
@@ -135,7 +103,6 @@ export default function RoomGallery({
           </div>
         </div>
 
-        {/* SAĞ: Özellikler ve Bilgi Paneli */}
         <div className="flex flex-col justify-between rounded-3xl border border-slate-200/80 bg-white p-6 sm:p-8 shadow-xl shadow-slate-200/40 lg:col-span-5">
           <div>
             <div className="flex items-center justify-between border-b border-slate-100 pb-5">
@@ -197,9 +164,8 @@ export default function RoomGallery({
 
       </div>
 
-      {/* ALT BÖLÜM: Tıklandığında Büyüyen Dinamik 3'lü Slider */}
       <div className="relative overflow-hidden rounded-3xl border border-slate-200/80 bg-white p-4 sm:p-6 shadow-md shadow-slate-100">
-        
+
         <div className="mb-4 flex items-center justify-between px-2">
           <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
             Galeri Koleksiyonu ({images.length} Fotoğraf)
@@ -255,8 +221,7 @@ export default function RoomGallery({
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    
-                    {/* Büyütme İpucu Katmanı */}
+
                     <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                       <span className="rounded-full bg-white/90 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-900 shadow-sm">
                         Büyüt
@@ -275,7 +240,6 @@ export default function RoomGallery({
           </AnimatePresence>
         </div>
 
-        {/* Dinamik Sayfalandırma Noktaları */}
         <div className="mt-4 flex justify-center gap-1.5">
           {Array.from({ length: totalPages }).map((_, idx) => (
             <button
@@ -297,7 +261,6 @@ export default function RoomGallery({
 
       </div>
 
-      {/* FULLSCREEN LIGHTBOX MODAL (Alt Fotoğrafa Tıklanınca Açılır) */}
       <AnimatePresence>
         {isModalOpen && (
           <motion.div
@@ -306,7 +269,7 @@ export default function RoomGallery({
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-md p-4 sm:p-8"
           >
-            {/* Kapat Butonu */}
+
             <button
               type="button"
               onClick={() => setIsModalOpen(false)}
@@ -315,7 +278,6 @@ export default function RoomGallery({
               Kapat
             </button>
 
-            {/* Sol Görsel Değiştirme */}
             <button
               type="button"
               onClick={handlePrevModalImage}
@@ -324,7 +286,6 @@ export default function RoomGallery({
               Önceki
             </button>
 
-            {/* Sağ Görsel Değiştirme */}
             <button
               type="button"
               onClick={handleNextModalImage}
@@ -333,7 +294,6 @@ export default function RoomGallery({
               Sonraki
             </button>
 
-            {/* Büyük Fotoğraf Gösterimi */}
             <div className="relative h-[80vh] w-full max-w-5xl overflow-hidden rounded-2xl">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -355,7 +315,6 @@ export default function RoomGallery({
               </AnimatePresence>
             </div>
 
-            {/* Modal Sayaç Bilgisi */}
             <div className="absolute bottom-6 rounded-full border border-white/20 bg-black/60 px-4 py-1.5 text-xs font-semibold text-white">
               {modalImageIndex + 1} / {images.length}
             </div>

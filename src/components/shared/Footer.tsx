@@ -83,7 +83,7 @@ export default function Footer() {
               href="https://wa.me/905382123011"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-brand-600 px-4 py-2 text-xs font-semibold text-white shadow-sm transition-all hover:bg-brand-500 hover:shadow-md hover:shadow-brand-500/20 active:scale-[0.98]"
+              className="inline-flex items-center gap-2 rounded-full bg-brand-600 px-3.5 py-2 text-xs font-semibold text-white shadow-sm transition-all hover:bg-brand-500 hover:shadow-md hover:shadow-brand-500/20 active:scale-[0.98] sm:px-4"
             >
               <WhatsappIcon />
               <span>WhatsApp</span>

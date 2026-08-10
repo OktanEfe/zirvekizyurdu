@@ -12,7 +12,7 @@ export const whyUs = [
   {
     title: "Üniversitelere Yürüme Mesafesi",
     description:
-      "Kocaeli Üniversitesi'ne 1 dakika, Gebze Teknik Üniversitesi'ne 15 dakika yürüme mesafesinde. Şehir merkezine, metro ve otobüs duraklarına da yürüme mesafesindeyiz.",
+      "Kocaeli Üniversitesi'ne 1 dakika yürüme mesafesinde. Otobüs duraklarına da yürüme mesafesindeyiz.",
   },
 ];
 
@@ -134,8 +134,7 @@ export const faqs = [
   },
   {
     question: "Üniversitelere ulaşım nasıl sağlanıyor?",
-    answer:
-      "Kocaeli Üniversitesi 5 dakika, Gebze Teknik Üniversitesi 15 dakika mesafededir. Bazı üniversiteler için servis imkanı da mevcuttur.",
+    answer: "Kocaeli Üniversitesi'ne 1 dakika mesafedeyiz.",
   },
 ];
 
@@ -165,8 +164,21 @@ export const team = [
 export const extraServices = [
   { title: "Günlük Temizlik", description: "Odalar ve ortak alanların günlük temizliği" },
   { title: "Çarşaf Değişimi", description: "Haftalık çarşaf ve nevresim değişimi" },
-  { title: "Otopark", description: "Güvenli araç park alanı" },
   { title: "Mutfak", description: "Ortak kullanım mutfak alanı" },
+];
+
+export const generalInfo = [
+  "Kız öğrenci yurdu işletmeciliğinde 29 yıllık deneyim",
+  "Yüzde yüz öğrenci ve veli memnuniyeti",
+  "Uzman pedagojik formasyon almış eğitimci yönetim kadrosu",
+  "Beş yıldızlı otelde şeflik yapmış Bolulu mutfak şefleri",
+  "550 kişinin aynı anda film indirebileceği kadar güçlü kesintisiz internet altyapısı",
+  "Aktif revir, hemşire ve öğrenciye hastane hizmeti",
+  "Haftanın üç günü profesyonel fitness eğitmeniyle çalışma imkanı",
+  "Her türlü teknolojik donanıma sahip, sadece öğrencinin kullandığı toplantı ve eğitim odası",
+  "Ücretsiz anne ve kız kardeş lojmanı",
+  "Kesintisiz enerji kaynağı (jeneratör desteği)",
+  "24 saat kesintisiz hizmet veren ücretsiz çamaşır ve ütü odaları",
 ];
 
 export const serviceDetails = [
@@ -178,7 +190,6 @@ export const serviceDetails = [
   { title: "Merkezi Isıtma", description: "Kış aylarında konforlu yaşam için merkezi ısıtma sistemi. Tüm odalarda ve ortak alanlarda ideal sıcaklık kontrolü." },
   { title: "24 Saat Sıcak Su", description: "Kesintisiz sıcak su hizmeti ile konforlu yaşam. Günün her saatinde sıcak su garantisi sunuyoruz." },
   { title: "Smart TV", description: "Ortak alanlarda Smart TV ve eğlence imkanları. Dinlenme saatlerinde televizyon izleme ve sosyalleşme alanları." },
-  { title: "Spor Salonu", description: "Modern spor ekipmanları ile fitness ve sağlıklı yaşam imkanları. Profesyonel spor aletleri ile egzersiz yapabilirsiniz." },
   { title: "Fitness Merkezi", description: "Profesyonel fitness ekipmanları ile spor yapma imkanı. Kardiyovasküler ve güç antrenmanları için tam donanımlı merkez." },
   { title: "Mescit", description: "İbadet ihtiyaçlarınız için özel olarak ayrılmış mescit alanı. Temiz ve huzurlu bir ortamda ibadet edebilirsiniz." },
   { title: "Revir Odası", description: "Sağlık sorunlarınız için revir odası ve ilk yardım hizmetleri. Acil durumlarda hızlı müdahale imkanı." },
@@ -190,7 +201,7 @@ export const standardRoomFeatures = [
   { title: "3 Öğün Yemek", description: "Kahvaltı, öğle ve akşam yemeği dahil beslenme hizmeti" },
   { title: "Çamaşırhane", description: "Modern çamaşır makineleri ve kurutma imkanı" },
   { title: "Çalışma Salonları", description: "Sessiz ve konforlu bireysel ve grup çalışma alanları" },
-  { title: "Otopark", description: "Güvenli kapalı otopark imkanı" },
+  { title: "24 Saat Oda Servisi", description: "Günün her saati oda servisi ile ihtiyaçlarınıza hızlı çözüm" },
 ];
 
 export const allRooms = [
@@ -210,7 +221,7 @@ export const allRooms = [
       "/galeri/yemekhane.jpeg",
     ],
     description: "Özel ve konforlu 1 kişilik odalarımız, kişisel alanını korumak isteyen öğrenciler için ideal seçenek.",
-    features: ["1 Adet Tek Kişilik Yatak","Kişisel Dolap","Çalışma Masası","Özel Banyo","Smart TV","Fiber İnternet","Klima","Oturma Alanı"],
+    features: ["1 Kişilik Yatak", "Dolap", "Smart TV", "Buzdolabı", "WC Banyo", "Çalışma Masası", "Komodin", "İnternet"],
     cta: "Bilgi Al",
   },
   {
@@ -228,7 +239,7 @@ export const allRooms = [
       "/galeri/yemekhane.jpeg",
     ],
     description: "Konforlu ve ferah 2 kişilik odalarımız, özel banyo ve modern donanımlarıyla ideal yaşam alanı sunar.",
-    features: ["2 Adet Tek Kişilik Yatak","Kişisel Dolap","Çalışma Masası","Özel Banyo","Smart TV","Fiber İnternet","Klima","Oturma Alanı"],
+    features: ["2 Kişilik Yatak", "Dolap", "Smart TV", "Buzdolabı", "WC Banyo", "Çalışma Masası", "Komodin", "İnternet"],
     cta: "Rezervasyon Yap",
   },
   {
@@ -245,7 +256,7 @@ export const allRooms = [
       "/galeri/yemekhane.jpeg",
     ],
     description: "Geniş ve konforlu 3 kişilik odalarımız, sosyal yaşamı seven öğrenciler için ideal seçenek.",
-    features: ["3 Adet Tek Kişilik Yatak","Kişisel Dolap","Çalışma Masası","Özel Banyo","Smart TV","Fiber İnternet","Klima","Oturma Alanı"],
+    features: ["3 Kişilik Yatak", "Dolap", "Smart TV", "Buzdolabı", "WC Banyo", "Çalışma Masası", "Komodin", "İnternet"],
     cta: "Bilgi Al",
   },
   {
@@ -264,7 +275,7 @@ export const allRooms = [
       "/galeri/yemekhane.jpeg",
     ],
     description: "Ekonomik ve pratik 4 kişilik odalarımız, bütçe dostu seçenek arayan öğrenciler için.",
-    features: ["4 Adet Tek Kişilik Yatak","Kişisel Dolap","Ortak Çalışma Alanı","Özel Banyo","Smart TV","Fiber İnternet","Klima","Sosyal Ortam"],
+    features: ["4 Kişilik Yatak", "Dolap", "Smart TV", "Buzdolabı", "WC Banyo", "Çalışma Masası", "Komodin", "İnternet"],
     cta: "Bilgi Al",
   },
   {
@@ -282,7 +293,7 @@ export const allRooms = [
       "/galeri/yemekhane.jpeg",
     ],
     description: "En ekonomik seçenek olan 5 kişilik odalarımız, sosyal ortamı seven ve bütçe dostu çözüm arayan öğrenciler için.",
-    features: ["5 Adet Tek Kişilik Yatak","Kişisel Dolap","Ortak Çalışma Alanı","Özel Banyo","Smart TV","Fiber İnternet","Klima","Sosyal Ortam"],
+    features: ["5 Kişilik Yatak", "Dolap", "Smart TV", "Buzdolabı", "WC Banyo", "Çalışma Masası", "Komodin", "İnternet"],
     cta: "Bilgi Al",
   },
 ];

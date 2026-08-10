@@ -32,8 +32,7 @@ export default function ServiceProcess() {
     <section className="bg-white py-20 lg:py-28 text-slate-900 border-t border-slate-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
-          
-          {/* Header */}
+
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end border-b border-slate-100 pb-12">
             <div className="max-w-2xl space-y-3">
               <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50/80 px-3.5 py-1 text-xs font-semibold uppercase tracking-widest text-blue-700">
@@ -49,21 +48,18 @@ export default function ServiceProcess() {
             </p>
           </div>
 
-          {/* Dikey Timeline Akışı */}
           <div className="relative mt-16 space-y-12 before:absolute before:inset-0 before:left-4 before:h-full before:w-0.5 before:bg-slate-200 md:before:left-1/2 md:before:-ml-0.5">
             {serviceSteps.map((step, index) => {
               const isEven = index % 2 === 0;
 
               return (
                 <div key={step.phase} className="relative flex flex-col md:flex-row items-start">
-                  
-                  {/* Timeline Noktası (Minimal Mavi Daire) */}
+
                   <div className="absolute left-4 top-1.5 -translate-x-1/2 md:left-1/2 z-10 flex h-4 w-4 items-center justify-center rounded-full bg-white ring-4 ring-blue-600" />
 
-                  {/* İçerik Bloğu (Alternatif Sol-Sağ Hizalama) */}
                   <div className={`pl-12 md:pl-0 md:w-1/2 ${isEven ? "md:pr-16 md:text-right" : "md:ml-auto md:pl-16"}`}>
                     <div className="group rounded-2xl border border-slate-200/80 bg-slate-50/50 p-6 lg:p-8 transition-all duration-300 hover:border-blue-300 hover:bg-white hover:shadow-xl hover:shadow-blue-900/5">
-                      
+
                       <div className={`flex items-center gap-3 ${isEven ? "md:justify-end" : "justify-start"}`}>
                         <span className="text-xs font-bold tracking-widest text-blue-600">
                           {step.phase}

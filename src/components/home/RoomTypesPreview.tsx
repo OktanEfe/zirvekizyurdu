@@ -7,30 +7,27 @@ export default function RoomTypesPreview() {
   return (
     <section className="bg-mist-50/60 py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
-        {/* Başlık & Subtitle Alanı */}
+
         <div className="text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/80 bg-white/80 px-4 py-1.5 text-xs font-semibold text-brand-700 shadow-sm backdrop-blur-md">
             <span className="h-2 w-2 rounded-full bg-brand-600 animate-pulse" />
             <span>Oda Tipleri</span>
           </div>
-          
+
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
             Öğrencinin ihtiyacına özel konfor alanları
           </h2>
-          
+
           <p className="mx-auto mt-4 max-w-2xl text-base text-slate-600">
             Farklı bütçe ve yaşam alışkanlıklarına uygun, her detayında ergonomi ve huzurun ön planda tutulduğu odalarımızı keşfedin.
           </p>
         </div>
 
-        {/* Oda Kartları Grid Yapısı */}
         <div className="mt-14 grid gap-8 lg:grid-cols-3">
           {homeRooms.map((room, index) => (
             <Reveal key={room.slug} delay={index * 0.08}>
               <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-brand-300 hover:shadow-xl hover:shadow-brand-600/10">
-                
-                {/* Görsel Katmanı */}
+
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
                   <Image
                     src={room.image}
@@ -40,11 +37,9 @@ export default function RoomTypesPreview() {
                     className="object-cover transition-transform duration-700 group-hover:scale-108"
                     priority
                   />
-                  
-                  {/* Görsel Üstü Yumuşak Karartma Gradient */}
+
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent opacity-80" />
-                  
-                  {/* Cam Efektli (Glassmorphism) Badge */}
+
                   {room.tag ? (
                     <div className="absolute top-4 left-4 z-10">
                       <span className="inline-flex items-center rounded-full border border-white/20 bg-slate-900/60 px-3.5 py-1 text-xs font-medium text-white shadow-md backdrop-blur-md">
@@ -54,14 +49,12 @@ export default function RoomTypesPreview() {
                   ) : null}
                 </div>
 
-                {/* Kart İçerik Alanı */}
                 <div className="flex flex-1 flex-col justify-between p-7">
                   <div>
                     <h3 className="text-xl font-bold text-slate-900 transition-colors duration-300 group-hover:text-brand-600">
                       {room.title}
                     </h3>
-                    
-                    {/* Özellik Listesi */}
+
                     <ul className="mt-5 space-y-3">
                       {room.features.map((feature) => (
                         <li key={feature} className="flex items-start gap-3 text-sm text-slate-600">
@@ -74,7 +67,6 @@ export default function RoomTypesPreview() {
                     </ul>
                   </div>
 
-                  {/* Alt Bölüm / İncele Butonu Linki */}
                   <div className="mt-8 border-t border-slate-100 pt-5">
                     <Link
                       href={`/odalarimiz#${room.slug}`}
@@ -97,7 +89,6 @@ export default function RoomTypesPreview() {
           ))}
         </div>
 
-        {/* Ana Aksiyon Butonu */}
         <div className="mt-14 flex justify-center">
           <Link
             href="/odalarimiz"

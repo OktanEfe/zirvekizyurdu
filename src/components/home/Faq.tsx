@@ -10,11 +10,10 @@ export default function Faq() {
 
   return (
     <Reveal>
-      {/* GalleryPreview (Açık Mavi/Gri) -> Faq (Beyaz Zemin) */}
+
       <section className="bg-white py-16 lg:py-20">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          
-          {/* Başlık Alanı & Tipografi */}
+
           <div className="text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-3.5 py-1 text-xs font-semibold text-brand-700">
               <span className="h-1.5 w-1.5 rounded-full bg-brand-600" />
@@ -25,7 +24,6 @@ export default function Faq() {
             </h2>
           </div>
 
-          {/* Akordeon Liste */}
           <div className="mt-12 space-y-4">
             {faqs.map((item, index) => {
               const isOpen = openIndex === index;
@@ -46,8 +44,7 @@ export default function Faq() {
                       <span className={`text-base font-bold transition-colors ${isOpen ? "text-brand-600" : "text-slate-900"}`}>
                         {item.question}
                       </span>
-                      
-                      {/* Dönen Ok İkunu */}
+
                       <span
                         className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-all duration-300 ${
                           isOpen ? "bg-brand-600 text-white" : "bg-brand-50 text-brand-600"
