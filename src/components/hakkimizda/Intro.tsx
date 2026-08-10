@@ -8,7 +8,7 @@ export default function Intro() {
       <section className="relative min-h-[520px] w-full overflow-hidden sm:min-h-[600px] lg:min-h-[640px] flex items-end">
         {/* Sinematik Arka Plan Görseli */}
         <Image
-          src="/images/about.jpg"
+          src="/hakkimizda/hero.jpeg"
           alt="Zirve Kız Yurdu Genel Görünüm"
           fill
           priority
@@ -35,12 +35,12 @@ export default function Intro() {
               <h1 className="text-4xl font-black tracking-tight text-white sm:text-6xl lg:text-7xl leading-[1.1]">
                 Geleceğe <br />
                 <span className="bg-gradient-to-r from-brand-300 via-blue-200 to-indigo-300 bg-clip-text text-transparent">
-                  Zirve'de Hazırlanın
+                  Zirve&apos;de Hazırlanın
                 </span>
               </h1>
 
               <p className="max-w-2xl text-base text-slate-300 sm:text-xl font-light leading-relaxed">
-                Kocaeli Üniversitesi'nin yanı başında; otel konforunu, ev sıcaklığını ve kesintisiz güvenliği bir arada sunan ayrıcalıklı bir yaşam alanı.
+                Kocaeli Üniversitesi&apos;nin yanı başında; otel konforunu, ev sıcaklığını ve kesintisiz güvenliği bir arada sunan ayrıcalıklı bir yaşam alanı.
               </p>
             </div>
           </Reveal>
@@ -67,11 +67,11 @@ export default function Intro() {
                   </h2>
                   
                   <p className="text-base leading-relaxed text-slate-600 sm:text-lg">
-                    Zirve Kız Yurdu, uzman yönetim kadrosu ve huzurlu ortamı ile öğrencilerin eğitim yolculuğunu güçlendirir. Kocaeli Üniversitesi'ne <strong className="font-semibold text-slate-900">sadece 1 dakika</strong> mesafedeki konumumuzla zamanınızı tamamen kendinize ve derslerinize ayırmanızı sağlıyoruz.
+                    Zirve Kız Yurdu, uzman yönetim kadrosu ve huzurlu ortamı ile öğrencilerin eğitim yolculuğunu güçlendirir. Kocaeli Üniversitesi&apos;ne <strong className="font-semibold text-slate-900">sadece 1 dakika</strong> mesafedeki konumumuzla zamanınızı tamamen kendinize ve derslerinize ayırmanızı sağlıyoruz.
                   </p>
                   
                   <p className="text-base leading-relaxed text-slate-600">
-                    2010'dan bu yana binlerce öğrencimizin tercihi olduk. Aile sıcaklığında bir ortamı yüksek güvenlik, modern mimari ve kesintisiz otel konforu standartlarıyla sunuyoruz.
+                    2010&apos;dan bu yana binlerce öğrencimizin tercihi olduk. Aile sıcaklığında bir ortamı yüksek güvenlik, modern mimari ve kesintisiz otel konforu standartlarıyla sunuyoruz.
                   </p>
                 </div>
               </Reveal>
@@ -106,8 +106,8 @@ export default function Intro() {
                   <div className="group relative overflow-hidden rounded-3xl bg-slate-900 shadow-2xl ring-1 ring-slate-900/10">
                     <div className="relative aspect-[4/5] w-full">
                       <Image
-                        src="/images/room-1.jpg"
-                        alt="Yurdun iç mekanı"
+                        src="/hakkimizda/hakkimizda.jpeg"
+                        alt="Zirve Kız Yurdu dış cephe"
                         fill
                         sizes="(max-width: 1024px) 100vw, 50vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-105"

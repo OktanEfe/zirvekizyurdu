@@ -13,8 +13,8 @@ export default function Intro() {
           <div className="group relative overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-900/5">
             <div className="relative aspect-[4/3] w-full sm:aspect-[4/5]">
               <Image
-                src="/images/room-1.jpg"
-                alt="Yurdun giriş alanı"
+                src="/anasayfa/hakkımızda.jpg"
+                alt="Hakkımızda"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -37,10 +37,10 @@ export default function Intro() {
 
             <div className="space-y-4 text-base leading-relaxed text-slate-600">
               <p>
-                Zirve Kız Yurdu, Kocaeli'de güvenlik, hijyen ve akademik odaklı yaşam alanı sunar. Odalar modern, ferah ve öğrencilerin günlük ihtiyaçlarını karşılayacak şekilde tasarlanmıştır.
+                Zirve Kız Yurdu, Kocaeli&apos;de güvenlik, hijyen ve akademik odaklı yaşam alanı sunar. Odalar modern, ferah ve öğrencilerin günlük ihtiyaçlarını karşılayacak şekilde tasarlanmıştır.
               </p>
               <p>
-                2010'dan beri hizmet veriyoruz ve her yıl binlerce öğrencinin eğitim yolculuğuna destek oluyoruz. Aile sıcaklığı ve yüksek memnuniyetle yurt yaşamını kolaylaştırıyoruz.
+                2010&apos;dan beri hizmet veriyoruz ve her yıl binlerce öğrencinin eğitim yolculuğuna destek oluyoruz. Aile sıcaklığı ve yüksek memnuniyetle yurt yaşamını kolaylaştırıyoruz.
               </p>
             </div>
 

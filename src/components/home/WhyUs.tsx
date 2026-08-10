@@ -22,7 +22,7 @@ export default function WhyUs() {
           </h2>
 
           <p className="mx-auto mt-4 max-w-2xl text-base text-slate-400">
-            Kocaeli'de evinizdeki huzuru ve otel konforunu bir arada sunan ayrıcalıklı yaşam standartları.
+            Kocaeli&apos;de evinizdeki huzuru ve otel konforunu bir arada sunan ayrıcalıklı yaşam standartları.
           </p>
         </div>
 
@@ -72,24 +72,7 @@ export default function WhyUs() {
                   </p>
                 </div>
 
-                {/* Alt Detay / Yönlendirme İkonu */}
-                <div className="mt-6 flex items-center gap-1.5 text-xs font-semibold text-brand-400">
-                  <span>Ayrıntıları İncele</span>
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="transition-transform duration-300 group-hover:translate-x-1"
-                  >
-                    <path d="M5 12h14" />
-                    <path d="m12 5 7 7-7 7" />
-                  </svg>
-                </div>
+            
 
               </article>
             </Reveal>

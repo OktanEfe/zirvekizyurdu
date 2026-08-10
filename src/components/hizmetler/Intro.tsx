@@ -31,7 +31,7 @@ export default function Intro() {
       <section className="relative flex min-h-[440px] w-full items-end overflow-hidden sm:min-h-[500px] lg:min-h-[540px]">
         {/* Arka Plan Görseli */}
         <Image
-          src="/images/services-hero.jpg"
+          src="/hizmetler/hero.jpeg"
           alt="Zirve Kız Yurdu Hizmetler"
           fill
           priority

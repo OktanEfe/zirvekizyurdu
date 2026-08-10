@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -35,14 +36,12 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-md transition-all">
+    <header className="sticky top-0  z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-md transition-all">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3.5 sm:px-6 lg:px-8">
-        <Link 
-          href="/" 
-          className="group flex items-center gap-2.5 text-lg font-bold tracking-tight text-slate-900 transition-colors hover:text-brand-600"
-        >
-          <span className="h-3 w-3 rounded-full bg-brand-600 shadow-sm shadow-brand-600/50 transition-transform group-hover:scale-110" />
-          <span>Zirve Kız Yurdu</span>
+        <Link href="/" className="group flex items-center transition-colors hover:text-brand-600">
+          <div className="relative h-10 w-10 overflow-hidden">
+            <Image src="/logo/zirve_logo.png" alt="Zirve Kız Yurdu" fill className="object-contain" />
+          </div>
         </Link>
 
         {/* Desktop Navigation */}

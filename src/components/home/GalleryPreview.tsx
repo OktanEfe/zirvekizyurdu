@@ -1,9 +1,40 @@
+"use client";
+
+import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/shared/Reveal";
 import { galleryPreviewImages } from "@/lib/data";
 
 export default function GalleryPreview() {
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  const handleNext = useCallback(() => {
+    setSelectedIndex((prev) =>
+      prev !== null ? (prev + 1) % galleryPreviewImages.length : prev
+    );
+  }, []);
+
+  const handlePrev = useCallback(() => {
+    setSelectedIndex((prev) =>
+      prev !== null
+        ? (prev - 1 + galleryPreviewImages.length) % galleryPreviewImages.length
+        : prev
+    );
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedIndex === null) return;
+      if (e.key === "Escape") setSelectedIndex(null);
+      if (e.key === "ArrowRight") handleNext();
+      if (e.key === "ArrowLeft") handlePrev();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedIndex, handleNext, handlePrev]);
+
   return (
     <section className="bg-mist-50/60 py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -23,7 +54,10 @@ export default function GalleryPreview() {
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {galleryPreviewImages.map((item, index) => (
             <Reveal key={item.src} delay={index * 0.08}>
-              <div className="group relative overflow-hidden rounded-2xl bg-slate-900 shadow-sm ring-1 ring-slate-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+              <div
+                onClick={() => setSelectedIndex(index)}
+                className="group relative cursor-pointer overflow-hidden rounded-2xl bg-slate-900 shadow-sm ring-1 ring-slate-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+              >
                 
                 {/* Görsel Katmanı */}
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
@@ -70,6 +104,60 @@ export default function GalleryPreview() {
         </div>
 
       </div>
+
+      {/* LIGHTBOX MODAL */}
+      {selectedIndex !== null && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/95 p-4 backdrop-blur-md"
+          onClick={() => setSelectedIndex(null)}
+        >
+          <button
+            onClick={() => setSelectedIndex(null)}
+            className="absolute right-6 top-6 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-xl font-bold text-white transition-colors hover:bg-white/20"
+            aria-label="Kapat"
+          >
+            ✕
+          </button>
+
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              handlePrev();
+            }}
+            className="absolute left-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-2xl font-bold text-white transition-colors hover:bg-white/20"
+            aria-label="Önceki"
+          >
+            ‹
+          </button>
+
+          <div
+            className="relative h-[70vh] w-[90vw] max-w-4xl overflow-hidden rounded-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={galleryPreviewImages[selectedIndex].src}
+              alt={galleryPreviewImages[selectedIndex].title}
+              fill
+              className="object-contain"
+            />
+          </div>
+
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              handleNext();
+            }}
+            className="absolute right-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-2xl font-bold text-white transition-colors hover:bg-white/20"
+            aria-label="Sonraki"
+          >
+            ›
+          </button>
+
+          <div className="absolute bottom-6 rounded-full border border-white/20 bg-black/60 px-4 py-1.5 text-xs font-semibold text-white">
+            {galleryPreviewImages[selectedIndex].title} · {selectedIndex + 1} / {galleryPreviewImages.length}
+          </div>
+        </div>
+      )}
     </section>
   );
 }

@@ -36,7 +36,6 @@ export default function MissionVision() {
                   <span className="inline-flex items-center gap-2 rounded-full bg-brand-500/20 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-brand-300 ring-1 ring-brand-400/30">
                     Misyonumuz
                   </span>
-                  <span className="text-3xl font-black text-slate-800 transition-colors group-hover:text-brand-400/30">01</span>
                 </div>
 
                 <h3 className="mt-6 text-2xl font-bold tracking-tight text-white sm:text-3xl">
@@ -56,11 +55,9 @@ export default function MissionVision() {
             </div>
           </Reveal>
 
-          {/* VİZYON KARTI (Koyu Indigo Glow Aksanlı) */}
           <Reveal delay={0.2}>
             <div className="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-8 sm:p-10 backdrop-blur-xl shadow-2xl transition-all duration-500 hover:-translate-y-1.5 hover:border-purple-500/50 hover:bg-white/[0.07]">
               
-              {/* Sabit İnce Üst Işık Çizgisi */}
               <div className="absolute inset-x-0 top-0 h-[2px] w-full bg-gradient-to-r from-transparent via-purple-400 to-transparent" />
               <div className="pointer-events-none absolute -right-12 -top-12 -z-10 h-40 w-40 rounded-full bg-purple-500/15 blur-2xl" />
 
@@ -69,7 +66,6 @@ export default function MissionVision() {
                   <span className="inline-flex items-center gap-2 rounded-full bg-purple-500/20 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-purple-300 ring-1 ring-purple-400/30">
                     Vizyonumuz
                   </span>
-                  <span className="text-3xl font-black text-slate-800 transition-colors group-hover:text-purple-400/30">02</span>
                 </div>
 
                 <h3 className="mt-6 text-2xl font-bold tracking-tight text-white sm:text-3xl">
@@ -77,7 +73,7 @@ export default function MissionVision() {
                 </h3>
 
                 <p className="mt-4 text-base leading-relaxed text-slate-300 font-light">
-                  Türkiye'nin en güvenilir ve örnek gösterilen öğrenci rezidansları arasında zirvedeki yerimizi korumak. İnovatif yönetim anlayışımız, teknolojik altyapımız ve sürekli yenilenen modern imkânlarımızla sektördeki kalite standartlarını belirlemek.
+                  Türkiye&apos;nin en güvenilir ve örnek gösterilen öğrenci rezidansları arasında zirvedeki yerimizi korumak. İnovatif yönetim anlayışımız, teknolojik altyapımız ve sürekli yenilenen modern imkânlarımızla sektördeki kalite standartlarını belirlemek.
                 </p>
               </div>
 
