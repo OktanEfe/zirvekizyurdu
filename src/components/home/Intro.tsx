@@ -35,10 +35,7 @@ export default function Intro() {
 
             <div className="space-y-4 text-base leading-relaxed text-slate-600">
               <p>
-                Zirve Kız Yurdu, Kocaeli&apos;de güvenlik, hijyen ve akademik odaklı yaşam alanı sunar. Odalar modern, ferah ve öğrencilerin günlük ihtiyaçlarını karşılayacak şekilde tasarlanmıştır.
-              </p>
-              <p>
-                2010&apos;dan beri hizmet veriyoruz ve her yıl binlerce öğrencinin eğitim yolculuğuna destek oluyoruz. Aile sıcaklığı ve yüksek memnuniyetle yurt yaşamını kolaylaştırıyoruz.
+                1996&apos;dan bu yana kız öğrenci yurdu işletmeciliğinde edindiğimiz 29 yıllık tecrübemiz ve uzman eğitimci kadromuz ile öğrencilerimize güvenli, konforlu ve modern bir yaşam alanı sunuyoruz. Kocaeli Üniversitesi&apos;ne sadece 100 metre yürüme mesafesinde yer alan yurdumuz, hem kampüse hem de şehir imkânlarına kolay erişim sağlamaktadır.
               </p>
             </div>
 

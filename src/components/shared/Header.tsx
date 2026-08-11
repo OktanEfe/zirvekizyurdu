@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const navItems = [
   { label: "Ana Sayfa", href: "/" },
@@ -34,6 +34,17 @@ function WhatsappIcon() {
 export default function Header() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
 
   return (
     <header className="sticky top-0 z-50 overflow-visible border-b border-slate-200/80 bg-white/95 backdrop-blur-md transition-all">
@@ -113,7 +124,7 @@ export default function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden border-t border-brand-100 bg-white md:hidden"
+            className="absolute inset-x-0 top-full z-40 max-h-[calc(100vh-4rem)] overflow-y-auto overflow-x-hidden border-t border-brand-100 bg-white shadow-lg md:hidden"
           >
             <div className="space-y-1 px-4 pt-3 pb-5">
               {navItems.map((item) => {

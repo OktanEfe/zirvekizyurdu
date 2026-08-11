@@ -6,9 +6,40 @@ import WhatsappButton from "@/components/shared/WhatsappButton";
 import SmoothScrollProvider from "@/components/shared/SmoothScrollProvider";
 import "./globals.css";
 
+const siteUrl = "https://www.zirvekizogrenciyurdu.com";
+const ogDescription =
+  "Kocaeli Umuttepe Zirve Kız Yurdu; Kocaeli Üniversitesi'ne 100 metre mesafede, 29 yıllık tecrübeyle güvenli ve konforlu kız öğrenci yurdu hizmeti sunar.";
+
 export const metadata: Metadata = {
-  title: "Zirve Kız Yurdu",
-  description: "Zirve Kız Yurdu kurumsal tanıtım sitesi",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Zirve Kız Yurdu | Kocaeli Umuttepe Kız Öğrenci Yurdu",
+    template: "%s | Zirve Kız Yurdu",
+  },
+  description: ogDescription,
+  keywords: [
+    "kız öğrenci yurdu",
+    "Kocaeli kız yurdu",
+    "Kocaeli Üniversitesi yurt",
+    "Umuttepe kız yurdu",
+    "güvenli kız öğrenci yurdu",
+    "Kocaeli özel kız yurdu",
+  ],
+  openGraph: {
+    title: "Zirve Kız Yurdu | Kocaeli Umuttepe Kız Öğrenci Yurdu",
+    description: ogDescription,
+    url: siteUrl,
+    siteName: "Zirve Kız Yurdu",
+    images: [{ url: "/images/og-cover.jpg", width: 1200, height: 630, alt: "Zirve Kız Yurdu" }],
+    locale: "tr_TR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Zirve Kız Yurdu | Kocaeli Umuttepe Kız Öğrenci Yurdu",
+    description: ogDescription,
+    images: ["/images/og-cover.jpg"],
+  },
   icons: {
     icon: [
       { url: "/favicon_io/favicon-16x16.png", type: "image/png", sizes: "16x16" },

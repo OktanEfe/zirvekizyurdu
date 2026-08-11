@@ -1,17 +1,20 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import Link from "next/link";
+import { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useSwipeGallery } from "@/components/shared/useSwipeGallery";
 
 type RoomGalleryProps = {
   images: string[];
   roomTitle: string;
   features: string[];
   specs: { label: string; value: string }[];
+  slug: string;
 };
 
-export default function RoomGallery({ images, roomTitle, features, specs }: RoomGalleryProps) {
+export default function RoomGallery({ images, roomTitle, features, specs, slug }: RoomGalleryProps) {
 
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
@@ -20,6 +23,10 @@ export default function RoomGallery({ images, roomTitle, features, specs }: Room
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImageIndex, setModalImageIndex] = useState(0);
+  const modalScrollRef = useRef<HTMLDivElement>(null);
+  const mobileStripRef = useRef<HTMLDivElement>(null);
+
+  useSwipeGallery(modalScrollRef, isModalOpen ? modalImageIndex : 0, images.length, setModalImageIndex);
 
   const itemsPerPage = 3;
   const totalPages = Math.ceil(images.length / itemsPerPage);
@@ -153,12 +160,12 @@ export default function RoomGallery({ images, roomTitle, features, specs }: Room
           </div>
 
           <div className="mt-8 pt-6 border-t border-slate-100">
-            <a
-              href="#iletisim"
+            <Link
+              href={`/iletisim?oda=${slug}`}
               className="inline-flex w-full items-center justify-center rounded-full bg-blue-600 px-6 py-4 text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:bg-blue-700 hover:shadow-blue-500/40 active:scale-[0.98]"
             >
               Fiyat Al ve Rezerve Et
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -170,7 +177,7 @@ export default function RoomGallery({ images, roomTitle, features, specs }: Room
           <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
             Galeri Koleksiyonu ({images.length} Fotoğraf)
           </span>
-          <div className="flex items-center gap-2">
+          <div className="hidden items-center gap-2 sm:flex">
             <button
               type="button"
               onClick={prevSlide}
@@ -188,7 +195,39 @@ export default function RoomGallery({ images, roomTitle, features, specs }: Room
           </div>
         </div>
 
-        <div className="relative min-h-[140px] sm:min-h-[160px] overflow-hidden">
+        <div
+          ref={mobileStripRef}
+          className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-1 [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [touch-action:pan-x] sm:hidden [&::-webkit-scrollbar]:hidden"
+        >
+          {images.map((src, originalIndex) => {
+            const isActive = originalIndex === activeImageIndex;
+            return (
+              <button
+                key={`${src}-mobile-${originalIndex}`}
+                type="button"
+                onClick={() => handleThumbnailClick(originalIndex)}
+                className={`relative aspect-[16/10] w-[70%] shrink-0 snap-start overflow-hidden rounded-2xl border-2 transition-all duration-300 ${
+                  isActive ? "border-blue-600 ring-4 ring-blue-500/10" : "border-transparent"
+                }`}
+              >
+                <Image
+                  src={src}
+                  alt={`Galeri ${originalIndex + 1}`}
+                  fill
+                  sizes="70vw"
+                  className="object-cover"
+                />
+                {isActive && (
+                  <div className="absolute top-2 right-2 rounded-full bg-blue-600 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white shadow-md">
+                    Aktif
+                  </div>
+                )}
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="relative hidden min-h-[140px] overflow-hidden sm:block sm:min-h-[160px]">
           <AnimatePresence custom={direction} mode="wait">
             <motion.div
               key={sliderIndex}
@@ -240,7 +279,7 @@ export default function RoomGallery({ images, roomTitle, features, specs }: Room
           </AnimatePresence>
         </div>
 
-        <div className="mt-4 flex justify-center gap-1.5">
+        <div className="mt-4 hidden justify-center gap-1.5 sm:flex">
           {Array.from({ length: totalPages }).map((_, idx) => (
             <button
               key={idx}
@@ -267,13 +306,12 @@ export default function RoomGallery({ images, roomTitle, features, specs }: Room
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-md p-4 sm:p-8"
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md"
           >
-
             <button
               type="button"
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-6 right-6 z-20 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-white/20 active:scale-95"
+              className="absolute top-4 right-4 z-20 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-white/20 active:scale-95 sm:top-6 sm:right-6"
             >
               Kapat
             </button>
@@ -281,7 +319,7 @@ export default function RoomGallery({ images, roomTitle, features, specs }: Room
             <button
               type="button"
               onClick={handlePrevModalImage}
-              className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 rounded-full border border-white/20 bg-white/10 px-4 py-3 text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-white/20 active:scale-95"
+              className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 hidden rounded-full border border-white/20 bg-white/10 px-4 py-3 text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-white/20 active:scale-95 sm:block"
             >
               Önceki
             </button>
@@ -289,33 +327,34 @@ export default function RoomGallery({ images, roomTitle, features, specs }: Room
             <button
               type="button"
               onClick={handleNextModalImage}
-              className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 rounded-full border border-white/20 bg-white/10 px-4 py-3 text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-white/20 active:scale-95"
+              className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 hidden rounded-full border border-white/20 bg-white/10 px-4 py-3 text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-white/20 active:scale-95 sm:block"
             >
               Sonraki
             </button>
 
-            <div className="relative h-[80vh] w-full max-w-5xl overflow-hidden rounded-2xl">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={modalImageIndex}
-                  initial={{ opacity: 0, scale: 0.96 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.96 }}
-                  transition={{ duration: 0.2 }}
-                  className="relative h-full w-full"
+            <div
+              ref={modalScrollRef}
+              className="flex h-full w-full snap-x snap-mandatory overflow-x-auto [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {images.map((src, idx) => (
+                <div
+                  key={`${src}-${idx}`}
+                  className="flex h-full w-full shrink-0 snap-center items-center justify-center p-4 sm:p-8"
                 >
-                  <Image
-                    src={images[modalImageIndex]}
-                    alt={`Büyük Görsel ${modalImageIndex + 1}`}
-                    fill
-                    priority
-                    className="object-contain"
-                  />
-                </motion.div>
-              </AnimatePresence>
+                  <div className="relative h-[80vh] w-full max-w-5xl overflow-hidden rounded-2xl">
+                    <Image
+                      src={src}
+                      alt={`Büyük Görsel ${idx + 1}`}
+                      fill
+                      priority={idx === modalImageIndex}
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
 
-            <div className="absolute bottom-6 rounded-full border border-white/20 bg-black/60 px-4 py-1.5 text-xs font-semibold text-white">
+            <div className="pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full border border-white/20 bg-black/60 px-4 py-1.5 text-xs font-semibold text-white">
               {modalImageIndex + 1} / {images.length}
             </div>
           </motion.div>

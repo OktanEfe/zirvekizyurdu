@@ -20,9 +20,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return { title: "Oda Bulunamadı | Kocaeli Umuttepe Zirve Kız Yurdu" };
   }
 
+  const title = `${room.title} | Kocaeli Umuttepe Zirve Kız Yurdu`;
+  const description = `Kocaeli Umuttepe Zirve Kız Yurdu ${room.title.toLocaleLowerCase("tr-TR")} özellikleri, galerisi ve fiyat bilgisi için detayları inceleyin.`;
+  const roomImage = [{ url: room.image, width: 1200, height: 900, alt: room.title }];
+
   return {
-    title: `${room.title} | Kocaeli Umuttepe Zirve Kız Yurdu`,
-    description: `Kocaeli Umuttepe Zirve Kız Yurdu ${room.title.toLocaleLowerCase("tr-TR")} özellikleri, galerisi ve fiyat bilgisi için detayları inceleyin.`,
+    title: { absolute: title },
+    description,
+    openGraph: { title, description, images: roomImage },
+    twitter: { card: "summary_large_image", title, description, images: [room.image] },
   };
 }
 
@@ -34,7 +40,6 @@ export default async function RoomDetailPage({ params }: { params: Promise<{ slu
     notFound();
   }
 
-  const otherRooms = allRooms.filter((item) => item.slug !== room.slug);
   const whatsappMessage = `Merhaba, ${room.title} hakkında bilgi almak istiyorum.`;
   const gallery = room.gallery ?? [room.image];
   const specs = [
@@ -56,7 +61,7 @@ export default async function RoomDetailPage({ params }: { params: Promise<{ slu
       />
 
       <Reveal>
-        <GallerySlider images={gallery} roomTitle={room.title} features={room.features} specs={specs} />
+        <GallerySlider images={gallery} roomTitle={room.title} features={room.features} specs={specs} slug={room.slug} />
       </Reveal>
 
       <Reveal>
@@ -72,7 +77,7 @@ export default async function RoomDetailPage({ params }: { params: Promise<{ slu
       </Reveal>
 
       <Reveal>
-        <OtherRooms rooms={otherRooms} />
+        <OtherRooms />
       </Reveal>
     </>
   );

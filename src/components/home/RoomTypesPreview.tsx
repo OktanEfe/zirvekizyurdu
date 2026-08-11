@@ -69,7 +69,7 @@ export default function RoomTypesPreview() {
 
                   <div className="mt-8 border-t border-slate-100 pt-5">
                     <Link
-                      href={`/odalarimiz#${room.slug}`}
+                      href={`/odalarimiz/${room.slug}`}
                       className="inline-flex w-full items-center justify-between text-sm font-semibold text-brand-600 transition-colors group-hover:text-brand-700"
                     >
                       <span>Detayları İncele & Fiyat Al</span>

@@ -3,8 +3,8 @@ import Reveal from "@/components/shared/Reveal";
 const contacts = [
   {
     label: "Adresimiz",
-    value: "Kabaoğlu Mah. Prof. Baki Komşuoğlu Bulvarı No:495, Kocaeli",
-    href: "https://maps.google.com/?q=Kabaoğlu+Mah.+Prof.+Baki+Komşuoğlu+Bulvarı+No:495+Kocaeli",
+    value: "Kabaoğlu Mah. Prof. Baki Komşuoğlu Bulvarı 41001, Kocaeli",
+    href: "https://www.google.com/maps/place//data=!4m2!3m1!1s0xe4fc4807f9d20b5:0x2f9126297b9b610?sa=X&ved=1t:8290&ictx=111",
     isExternal: true,
     icon: (
       <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.8" stroke="currentColor">
@@ -69,31 +69,31 @@ export default function ContactInfoCards() {
             </p>
           </div>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-6 xl:grid-cols-4">
             {contacts.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
                 target={item.isExternal ? "_blank" : undefined}
                 rel={item.isExternal ? "noopener noreferrer" : undefined}
-                className="group relative flex flex-col justify-between rounded-3xl border border-brand-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-brand-200"
+                className="group relative flex flex-col justify-between rounded-2xl border border-brand-100 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-brand-200 sm:rounded-3xl sm:p-7"
               >
                 <div>
 
-                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-brand-50 text-brand-600 transition-colors duration-300 group-hover:bg-brand-600 group-hover:text-white sm:h-12 sm:w-12">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-colors duration-300 group-hover:bg-brand-600 group-hover:text-white sm:h-12 sm:w-12 sm:rounded-2xl">
                     {item.icon}
                   </div>
 
-                  <p className="mt-6 text-xs font-semibold uppercase tracking-wider text-slate-400 group-hover:text-brand-700 transition-colors">
+                  <p className="mt-4 text-[10px] font-semibold uppercase tracking-wider text-slate-400 group-hover:text-brand-700 transition-colors sm:mt-6 sm:text-xs">
                     {item.label}
                   </p>
 
-                  <p className="mt-2 text-sm font-medium leading-relaxed text-slate-900 group-hover:text-brand-900 transition-colors break-words">
+                  <p className="mt-1.5 text-xs font-medium leading-relaxed text-slate-900 group-hover:text-brand-900 transition-colors break-words sm:mt-2 sm:text-sm">
                     {item.value}
                   </p>
                 </div>
 
-                <div className="mt-6 flex items-center text-xs font-semibold text-brand-600 transition-all duration-200 group-hover:translate-x-1">
+                <div className="mt-4 flex items-center text-[11px] font-semibold text-brand-600 transition-all duration-200 group-hover:translate-x-1 sm:mt-6 sm:text-xs">
                   <span>İncele / Ulaş</span>
                   <svg
                     className="ml-1.5 h-3.5 w-3.5"

@@ -12,7 +12,7 @@ export const whyUs = [
   {
     title: "Üniversitelere Yürüme Mesafesi",
     description:
-      "Kocaeli Üniversitesi'ne 1 dakika yürüme mesafesinde. Otobüs duraklarına da yürüme mesafesindeyiz.",
+      "Kocaeli Üniversitesi'ne 100 metre yürüme mesafesinde. Otobüs duraklarına da yürüme mesafesindeyiz.",
   },
 ];
 
@@ -134,14 +134,14 @@ export const faqs = [
   },
   {
     question: "Üniversitelere ulaşım nasıl sağlanıyor?",
-    answer: "Kocaeli Üniversitesi'ne 1 dakika mesafedeyiz.",
+    answer: "Kocaeli Üniversitesi'ne 100 metre mesafedeyiz.",
   },
 ];
 
 export const highlights = [
   { title: "Güvenlik Önceliğimiz", description: "7/24 güvenlik kamerası sistemi, kartlı giriş ve deneyimli güvenlik personeli ile tam güvenlik" },
   { title: "Aile Ortamı", description: "Sıcak ve samimi bir ortamda, aile sıcaklığını hissedeceğiniz yaşam alanı" },
-  { title: "Eğitime Yakınlık", description: "Kocaeli Üniversitesi'ne 1 dakika, diğer üniversitelere kolay ulaşım" },
+  { title: "Eğitime Yakınlık", description: "Kocaeli Üniversitesi'ne 100 metre, diğer üniversitelere kolay ulaşım" },
   { title: "Yüksek Memnuniyet", description: "%98 öğrenci memnuniyet oranı ile kaliteli hizmet garantisi" },
 ];
 
@@ -324,7 +324,7 @@ export const contactFaqs = [
 ];
 
 export const locationFacts = [
-  "Kocaeli Üniversitesi'ne 1 dakika yürüyüş",
+  "Kocaeli Üniversitesi'ne 100 metre yürüyüş",
   "Otobüs durağına 2 dakika",
   "Şehir merkezine 10 dakika",
   "Alışveriş merkezlerine yakın",

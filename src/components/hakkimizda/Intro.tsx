@@ -62,11 +62,19 @@ export default function Intro() {
                   </h2>
 
                   <p className="text-base leading-relaxed text-slate-600 sm:text-lg">
-                    Zirve Kız Yurdu, uzman yönetim kadrosu ve huzurlu ortamı ile öğrencilerin eğitim yolculuğunu güçlendirir. Kocaeli Üniversitesi&apos;ne <strong className="font-semibold text-slate-900">sadece 1 dakika</strong> mesafedeki konumumuzla zamanınızı tamamen kendinize ve derslerinize ayırmanızı sağlıyoruz.
+                    1996&apos;dan bu yana kız öğrenci yurdu işletmeciliğinde edindiğimiz 29 yıllık tecrübemiz ve uzman eğitimci kadromuz ile öğrencilerimize güvenli, konforlu ve modern bir yaşam alanı sunuyoruz. Kocaeli Üniversitesi&apos;ne sadece 100 metre yürüme mesafesinde yer alan yurdumuz, hem kampüse hem de şehir imkânlarına kolay erişim sağlamaktadır.
                   </p>
 
                   <p className="text-base leading-relaxed text-slate-600">
-                    1997&apos;den bu yana binlerce öğrencimizin tercihi olduk. Aile sıcaklığında bir ortamı yüksek güvenlik, modern mimari ve kesintisiz otel konforu standartlarıyla sunuyoruz.
+                    Kız öğrencilerimizin tüm konforu düşünülerek tasarlanan odalarımızda özel banyo ve WC, televizyon, buzdolabı, 24 saat sıcak su, sınırsız internet ve ihtiyaç duyulabilecek tüm mobilyalar standart olarak bulunmaktadır. Rahat ders çalışmak için etüt salonları, günlük ihtiyaçlar için çamaşır yıkama ve ütü hizmeti, sosyal yaşam için kantin, kafeterya, fitness center, sauna ve teras kafe imkânlarımız mevcuttur.
+                  </p>
+
+                  <p className="text-base leading-relaxed text-slate-600">
+                    Öğrencilerimizin güvenliği için 24 saat güvenlik hizmeti, akademik ve sosyal ihtiyaçlar için fotokopi merkezi, toplantı ve eğitim salonu, sağlık desteği için revir bulunmaktadır. Uzman aşçı kadromuz tarafından hazırlanan açık büfe sabah kahvaltısı ve akşam yemeği, sağlıklı ve dengeli beslenme imkânı sunmaktadır. Jeneratör desteğimiz sayesinde kesintisiz enerji sağlanmakta, çağdaş yönetim anlayışımız ile öğrencilerimizin rahat, sorunsuz, güvenli ve mutlu bir eğitim hayatı yaşamaları hedeflenmektedir.
+                  </p>
+
+                  <p className="text-base font-semibold leading-relaxed text-slate-900">
+                    Öğrenciliğinizi Zirve&apos;de yaşayın; konfor, güven ve kaliteyi bir arada deneyimleyin.
                   </p>
                 </div>
               </Reveal>
@@ -79,7 +87,7 @@ export default function Intro() {
                   </div>
 
                   <div className="rounded-2xl border border-slate-200/80 bg-slate-50/80 p-5 text-center shadow-sm transition-all hover:border-brand-200 hover:bg-white hover:shadow-md">
-                    <p className="text-3xl font-extrabold text-slate-900 lg:text-4xl">1 Dk</p>
+                    <p className="text-3xl font-extrabold text-slate-900 lg:text-4xl">100 m</p>
                     <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-slate-500">Kampüs Mesafe</p>
                   </div>
 

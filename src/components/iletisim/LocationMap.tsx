@@ -2,8 +2,10 @@ import Reveal from "@/components/shared/Reveal";
 import { locationFacts } from "@/lib/data";
 
 export default function LocationMap() {
-  const query = encodeURIComponent("Umuttepe Zirve Kız Öğrenci Yurdu Kocaeli");
-  const mapSrc = `https://maps.google.com/maps?q=${query}&z=16&output=embed`;
+  const mapSrc =
+    "https://www.google.com/maps?q=Kabao%C4%9Flu+Mah.+Prof.+Baki+Kom%C5%9Fuo%C4%9Flu+Bulvar%C4%B1+No:495+Kocaeli&output=embed";
+  const placeUrl =
+    "https://www.google.com/maps/place//data=!4m2!3m1!1s0xe4fc4807f9d20b5:0x2f9126297b9b610?sa=X&ved=1t:8290&ictx=111";
 
   return (
     <Reveal>
@@ -22,6 +24,33 @@ export default function LocationMap() {
               />
 
               <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-brand-900/5" />
+
+              <a
+                href={placeUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-xs font-semibold text-brand-700 shadow-lg backdrop-blur-md transition-all hover:bg-white sm:bottom-5"
+              >
+                <svg
+                  className="h-3.5 w-3.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="2.5"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+                  />
+                </svg>
+                Google Maps&apos;te Aç
+              </a>
             </div>
 
             <div className="flex flex-col justify-between rounded-3xl border border-brand-100/80 bg-white p-8 sm:p-10 shadow-sm transition-all duration-300 hover:shadow-md">
@@ -73,7 +102,7 @@ export default function LocationMap() {
 
               <div className="mt-8 pt-6 border-t border-slate-100">
                 <a
-                  href={`https://www.google.com/maps/search/?api=1&query=${query}`}
+                  href={placeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-brand-50 px-5 py-3.5 text-sm font-semibold text-brand-700 hover:bg-brand-100/80 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-600/20"
