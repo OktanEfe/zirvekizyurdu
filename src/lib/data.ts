@@ -201,7 +201,7 @@ export const standardRoomFeatures = [
   { title: "3 Öğün Yemek", description: "Kahvaltı, öğle ve akşam yemeği dahil beslenme hizmeti" },
   { title: "Çamaşırhane", description: "Modern çamaşır makineleri ve kurutma imkanı" },
   { title: "Çalışma Salonları", description: "Sessiz ve konforlu bireysel ve grup çalışma alanları" },
-  { title: "24 Saat Oda Servisi", description: "Günün her saati oda servisi ile ihtiyaçlarınıza hızlı çözüm" },
+  { title: "7/24 Oda Servisi", description: "Günün her saati oda servisi ile ihtiyaçlarınıza hızlı çözüm" },
 ];
 
 export const allRooms = [

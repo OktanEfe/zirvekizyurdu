@@ -15,6 +15,32 @@ const navItems = [
   { label: "İletişim", href: "/iletisim" },
 ];
 
+const supportLogos = [
+  { src: "/logo/Kouyenilogo.png", name: "Kocaeli Üniversitesi" },
+  { src: "/logo/kocaeli-saglik-ve-teknoloji-universitesi.png", name: "Kocaeli Sağlık ve Teknoloji Üniversitesi" },
+];
+
+function SupportLogoStrip({ compact = false }: { compact?: boolean }) {
+  return (
+    <div className="flex items-center gap-2 sm:gap-2.5">
+      {supportLogos.map((logo) => (
+        <div
+          key={logo.src}
+          className={compact ? "relative h-7 w-12 shrink-0 sm:h-8 sm:w-14" : "relative h-8 w-14 shrink-0 sm:h-9 sm:w-16 lg:h-10 lg:w-16"}
+        >
+          <Image
+            src={logo.src}
+            alt={logo.name}
+            fill
+            sizes={compact ? "56px" : "72px"}
+            className="object-contain"
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function PhoneIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -81,6 +107,7 @@ export default function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
+          <SupportLogoStrip />
 
           <a
             href="tel:+905382123011"
@@ -145,23 +172,28 @@ export default function Header() {
                   </Link>
                 );
               })}
-              <div className="mt-4 flex flex-col gap-2.5 pt-2 border-t border-slate-100">
-                <a
-                  href="tel:+905382123011"
-                  className="flex items-center justify-center gap-2 rounded-lg border border-mist-200 bg-mist-50 px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-mist-100"
-                >
-                  <PhoneIcon />
-                  <span>0538 212 30 11</span>
-                </a>
-                <a
-                  href="https://wa.me/905382123011"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center justify-center gap-2 rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700"
-                >
-                  <WhatsappIcon />
-                  <span>WhatsApp</span>
-                </a>
+              <div className="mt-4 border-t border-slate-100 pt-3">
+                <div className="mb-3 flex items-center justify-center gap-2.5 rounded-xl border border-slate-100 bg-slate-50/80 px-2 py-2">
+                  <SupportLogoStrip compact />
+                </div>
+                <div className="flex flex-col gap-2.5">
+                  <a
+                    href="tel:+905382123011"
+                    className="flex items-center justify-center gap-2 rounded-lg border border-mist-200 bg-mist-50 px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-mist-100"
+                  >
+                    <PhoneIcon />
+                    <span>0538 212 30 11</span>
+                  </a>
+                  <a
+                    href="https://wa.me/905382123011"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center justify-center gap-2 rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700"
+                  >
+                    <WhatsappIcon />
+                    <span>WhatsApp</span>
+                  </a>
+                </div>
               </div>
             </div>
           </motion.div>

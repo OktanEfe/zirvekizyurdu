@@ -10,23 +10,52 @@ export default function ContactForm() {
     phone: "",
     subject: "Rezervasyon",
     message: "",
+    website: "",
   });
+
+  const [loading, setLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (field: string, value: string) => {
     setForm((current) => ({ ...current, [field]: value }));
   };
 
-  const handleSubmit = () => {
-    if (!form.name || !form.email || !form.phone || !form.message) {
-      alert("Lütfen tüm alanları doldurun.");
+  const handleSubmit = async () => {
+    setErrorMessage("");
+    setSuccessMessage("");
+
+    if (!form.name || !form.email || !form.message) {
+      setErrorMessage("Lütfen zorunlu alanları doldurun: Ad, E-posta, Mesaj.");
       return;
     }
 
-    const subject = encodeURIComponent(form.subject);
-    const body = encodeURIComponent(
-      `Ad Soyad: ${form.name}\nE-posta: ${form.email}\nTelefon: ${form.phone}\nKonu: ${form.subject}\nMesaj: ${form.message}`
-    );
-    window.location.href = `mailto:info@zirvekizogrenciyurdu.com?subject=${subject}&body=${body}`;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email)) {
+      setErrorMessage("Lütfen geçerli bir e-posta adresi girin.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setSuccessMessage("Mesajınız iletildi, en kısa sürede dönüş yapacağız.");
+        setForm({ name: "", email: "", phone: "", subject: "Rezervasyon", message: "", website: "" });
+      } else {
+        setErrorMessage(data?.error || "Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin.");
+      }
+    } catch (err) {
+      console.error(err);
+      setErrorMessage("Sunucu ile iletişim kurulamadı. WhatsApp'tan da yazabilirsiniz.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleWhatsApp = () => {
@@ -84,7 +113,7 @@ export default function ContactForm() {
 
                 <div className="grid gap-5 sm:grid-cols-2">
                   <label className="block">
-                    <span className="text-xs font-semibold text-slate-700">Telefon *</span>
+                    <span className="text-xs font-semibold text-slate-700">Telefon</span>
                     <input
                       type="tel"
                       placeholder="05XX XXX XX XX"
@@ -128,16 +157,40 @@ export default function ContactForm() {
                   />
                 </label>
 
+                {/* Honeypot input - görsel olarak gizli */}
+                <input
+                  type="text"
+                  name="website"
+                  value={form.website}
+                  onChange={(e) => handleChange("website", e.target.value)}
+                  className="sr-only"
+                  aria-hidden
+                  tabIndex={-1}
+                />
+
+                {successMessage && (
+                  <div className="rounded-md border border-brand-100/60 bg-brand-50/60 px-4 py-3 text-sm text-brand-800">
+                    {successMessage}
+                  </div>
+                )}
+
+                {errorMessage && (
+                  <div className="rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+                    {errorMessage} <span className="block mt-2">Alternatif olarak <button type="button" onClick={handleWhatsApp} className="underline">WhatsApp'tan yazabilirsiniz</button>.</span>
+                  </div>
+                )}
+
                 <div className="pt-2 flex flex-col gap-3 sm:flex-row">
                   <button
                     type="button"
                     onClick={handleSubmit}
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-brand-600 px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-brand-700 hover:shadow-md focus:outline-none focus:ring-4 focus:ring-brand-600/20 active:scale-[0.99]"
+                    disabled={loading}
+                    className={`inline-flex w-full items-center justify-center gap-2 rounded-2xl px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-brand-600/20 active:scale-[0.99] ${loading ? 'bg-brand-400 cursor-wait' : 'bg-brand-600 hover:bg-brand-700'}`}
                   >
                     <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
                     </svg>
-                    E-posta ile Gönder
+                    {loading ? 'Gönderiliyor...' : 'Formu Gönder'}
                   </button>
 
                   <button
