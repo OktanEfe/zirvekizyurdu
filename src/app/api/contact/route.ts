@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const FROM_EMAIL = "Zirve Kız Yurdu Web Sitesi <onboarding@resend.dev>";
+const FROM_EMAIL = "Zirve Kız Yurdu Web Sitesi <info@zirvekizogrenciyurdu.com>";
 const TO_EMAIL = "info@zirvekizogrenciyurdu.com";
 
 function escapeHtml(str: string) {
