@@ -21,7 +21,9 @@ export default function ContactForm() {
     setForm((current) => ({ ...current, [field]: value }));
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (event?: React.FormEvent<HTMLFormElement>) => {
+    event?.preventDefault();
+
     setErrorMessage("");
     setSuccessMessage("");
 
@@ -41,7 +43,14 @@ export default function ContactForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          subject: form.subject,
+          message: form.message,
+          website: form.website,
+        }),
       });
       const data = await res.json();
       if (res.ok && data.success) {
@@ -85,7 +94,7 @@ export default function ContactForm() {
                 Rezervasyon, oda ziyareti veya genel bilgi talepleriniz için formu doldurun; ekibimiz size en kısa sürede dönüş yapsın.
               </p>
 
-              <div className="mt-8 space-y-5">
+              <form onSubmit={handleSubmit} className="mt-8 space-y-5">
 
                 <div className="grid gap-5 sm:grid-cols-2">
                   <label className="block">
@@ -182,8 +191,7 @@ export default function ContactForm() {
 
                 <div className="pt-2 flex flex-col gap-3 sm:flex-row">
                   <button
-                    type="button"
-                    onClick={handleSubmit}
+                    type="submit"
                     disabled={loading}
                     className={`inline-flex w-full items-center justify-center gap-2 rounded-2xl px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-brand-600/20 active:scale-[0.99] ${loading ? 'bg-brand-400 cursor-wait' : 'bg-brand-600 hover:bg-brand-700'}`}
                   >
@@ -204,7 +212,7 @@ export default function ContactForm() {
                     WhatsApp ile Gönder
                   </button>
                 </div>
-              </div>
+              </form>
             </div>
 
             <div className="flex flex-col justify-between rounded-3xl border border-brand-100 bg-white p-8 sm:p-10 shadow-sm transition-all duration-300 hover:shadow-md">

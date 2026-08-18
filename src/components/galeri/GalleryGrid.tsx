@@ -57,9 +57,10 @@ export default function GalleryGrid({ activeFilter }: GalleryGridProps) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
             {visibleItems.map((item, index) => (
-              <Reveal key={`${item.src}-${index}`} delay={index * 0.04}>
+              <Reveal key={`${item.src}-${index}`} delay={index * 0.02}>
                 <div
                   onClick={() => setSelectedIndex(index)}
+                  style={{ willChange: "transform, opacity" }}
                   className="group cursor-pointer overflow-hidden rounded-xl border border-slate-200/80 bg-slate-950 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-900/10 sm:rounded-2xl"
                 >
                   <div className="relative aspect-square w-full overflow-hidden sm:aspect-[4/3]">

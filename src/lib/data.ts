@@ -198,7 +198,8 @@ export const serviceDetails = [
 export const standardRoomFeatures = [
   { title: "7/24 Güvenlik", description: "Kamera sistemi ve güvenlik personeli ile sürekli güvenlik" },
   { title: "Günlük Temizlik", description: "Ortak alanların günlük temizliği ve hijyen kontrolü" },
-  { title: "3 Öğün Yemek", description: "Kahvaltı, öğle ve akşam yemeği dahil beslenme hizmeti" },
+  { title: "Açık Büfe Kahvaltı", description: "Uzman aşçı kadromuz tarafından hazırlanan zengin açık büfe sabah kahvaltısı" },
+  { title: "Açık Büfe Akşam Yemeği", description: "Sağlıklı ve dengeli, açık büfe akşam yemeği hizmeti" },
   { title: "Çamaşırhane", description: "Modern çamaşır makineleri ve kurutma imkanı" },
   { title: "Çalışma Salonları", description: "Sessiz ve konforlu bireysel ve grup çalışma alanları" },
   { title: "7/24 Oda Servisi", description: "Günün her saati oda servisi ile ihtiyaçlarınıza hızlı çözüm" },

@@ -56,12 +56,21 @@ export default function Footer() {
           <div className="mt-5 space-y-3 text-sm leading-relaxed text-slate-400">
             <p>Kabaoğlu Mah. Prof. Baki Komşuoğlu Bulvarı No:495, Kocaeli</p>
             <p>
-              Telefon:{" "}
+              Cep: {" "}
               <a
                 href="tel:+905382123011"
                 className="font-medium text-slate-200 hover:text-brand-400 hover:underline"
               >
                 0538 212 30 11
+              </a>
+            </p>
+            <p>
+              Sabit: {" "}
+              <a
+                href="tel:+902625274100"
+                className="font-medium text-slate-200 hover:text-brand-400 hover:underline"
+              >
+                0262 527 41 00
               </a>
             </p>
             <p>

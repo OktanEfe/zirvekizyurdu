@@ -22,7 +22,7 @@ export default function ServicesGrid() {
 
         <div className="mt-16 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
           {serviceDetails.map((item, index) => (
-            <Reveal key={item.title} delay={index * 0.04}>
+            <Reveal key={item.title} delay={index * 0.02}>
               <article className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-900/5 sm:p-6">
                 <div className="absolute left-0 top-0 h-full w-1 bg-blue-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
