@@ -75,13 +75,29 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 overflow-visible border-b border-slate-200/80 bg-white/95 backdrop-blur-md transition-all">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-2.5">
-          {/* Logo - centered on mobile/tablet, left on desktop */}
-          <Link href="/" className="group flex items-center transition-colors hover:text-brand-600 shrink-0 md:order-1">
+        <div className="grid grid-cols-[auto_1fr_auto] items-center gap-2 py-2.5 md:flex md:justify-between">
+          {/* Logo - left column on mobile, left on desktop */}
+          <Link href="/" className="group flex items-center shrink-0 justify-self-start transition-colors hover:text-brand-600 md:order-1">
             <div className="relative h-20 w-20 sm:h-24 sm:w-24 overflow-hidden">
               <Image src="/logo/zirve_logo.png" alt="Zirve Kız Yurdu" fill className="object-contain" />
             </div>
           </Link>
+
+          {/* University logos - mobile only, centered column between main logo and hamburger */}
+          <div className="flex items-center justify-center gap-2.5 justify-self-center md:hidden">
+            {supportLogos.map((logo) => (
+              <div key={logo.src} className="relative h-9 w-14 shrink-0">
+                <Image
+                  src={logo.src}
+                  alt={logo.name}
+                  fill
+                  sizes="56px"
+                  className="object-contain"
+                  title={logo.name}
+                />
+              </div>
+            ))}
+          </div>
 
           {/* Nav - hidden on mobile */}
           <nav className="hidden items-center gap-7 md:flex md:order-2 md:flex-1 md:justify-center">
@@ -113,10 +129,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-3 md:order-3">
             <div className="flex items-center gap-2">
               {supportLogos.map((logo) => (
-                <div
-                  key={logo.src}
-                  className="relative h-7 w-11 shrink-0"
-                >
+                <div key={logo.src} className="relative h-7 w-11 shrink-0">
                   <Image
                     src={logo.src}
                     alt={logo.name}
@@ -151,7 +164,7 @@ export default function Header() {
           {/* Hamburger menu - mobile only */}
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-lg border border-slate-200 bg-mist-50/50 p-2 text-slate-700 transition-colors hover:bg-mist-100 hover:text-brand-600 md:hidden"
+            className="inline-flex items-center justify-center rounded-lg border border-slate-200 bg-mist-50/50 p-2 text-slate-700 transition-colors hover:bg-mist-100 hover:text-brand-600 md:hidden shrink-0"
             aria-expanded={isOpen}
             aria-label="Menüyü aç"
             onClick={() => setIsOpen((current) => !current)}
@@ -163,25 +176,6 @@ export default function Header() {
               <span className={`block h-0.5 w-5 rounded-full bg-current transition-transform duration-200 ${isOpen ? "-translate-y-1.5 -rotate-45" : ""}`} />
             </div>
           </button>
-        </div>
-
-        {/* Logos row on mobile/tablet - centered below main logo */}
-        <div className="flex lg:hidden items-center justify-center gap-1.5 sm:gap-2.5 pb-2.5">
-          {supportLogos.map((logo) => (
-            <div
-              key={logo.src}
-              className="relative h-6 w-9 sm:h-7 sm:w-11 shrink-0"
-            >
-              <Image
-                src={logo.src}
-                alt={logo.name}
-                fill
-                sizes="56px"
-                className="object-contain"
-                title={logo.name}
-              />
-            </div>
-          ))}
         </div>
       </div>
 

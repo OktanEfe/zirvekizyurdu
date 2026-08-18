@@ -3,7 +3,7 @@ import { locationFacts } from "@/lib/data";
 
 export default function LocationMap() {
   const mapSrc =
-    "https://www.google.com/maps?q=Kabao%C4%9Flu+Mah.+Prof.+Baki+Kom%C5%9Fuo%C4%9Flu+Bulvar%C4%B1+No:495+Kocaeli&output=embed";
+    "https://www.google.com/maps?cid=214222671938434576&output=embed";
   const placeUrl =
     "https://www.google.com/maps/place//data=!4m2!3m1!1s0xe4fc4807f9d20b5:0x2f9126297b9b610?sa=X&ved=1t:8290&ictx=111";
 

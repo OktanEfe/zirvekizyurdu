@@ -1,5 +1,10 @@
 import Reveal from "@/components/shared/Reveal";
 
+const phoneNumbers = [
+  { label: "Cep", value: "+90 538 212 30 11", href: "tel:+905382123011" },
+  { label: "Sabit", value: "+90 262 527 41 00", href: "tel:+902625274100" },
+];
+
 const contacts = [
   {
     label: "Adresimiz",
@@ -10,28 +15,6 @@ const contacts = [
       <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.8" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-      </svg>
-    ),
-  },
-  {
-    label: "Cep",
-    value: "+90 538 212 30 11",
-    href: "tel:+905382123011",
-    isExternal: false,
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.8" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.826-1.239-5.112-3.525-6.351-6.351l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-      </svg>
-    ),
-  },
-  {
-    label: "Sabit",
-    value: "+90 262 527 41 00",
-    href: "tel:+902625274100",
-    isExternal: false,
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.8" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75A2.25 2.25 0 016 4.5h12a2.25 2.25 0 012.25 2.25v10.5A2.25 2.25 0 0118 19.5H6a2.25 2.25 0 01-2.25-2.25V6.75zm0 0l8.25 6.75L19.5 6.75" />
       </svg>
     ),
   },
@@ -59,6 +42,69 @@ const contacts = [
   },
 ];
 
+function ContactCard({ item }: { item: (typeof contacts)[number] }) {
+  return (
+    <a
+      href={item.href}
+      target={item.isExternal ? "_blank" : undefined}
+      rel={item.isExternal ? "noopener noreferrer" : undefined}
+      className="group relative flex flex-col justify-between rounded-2xl border border-brand-100 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-brand-200 sm:rounded-3xl sm:p-7"
+    >
+      <div>
+        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-colors duration-300 group-hover:bg-brand-600 group-hover:text-white sm:h-12 sm:w-12 sm:rounded-2xl">
+          {item.icon}
+        </div>
+
+        <p className="mt-4 text-[10px] font-semibold uppercase tracking-wider text-slate-400 group-hover:text-brand-700 transition-colors sm:mt-6 sm:text-xs">
+          {item.label}
+        </p>
+
+        <p className="mt-1.5 text-xs font-medium leading-relaxed text-slate-900 group-hover:text-brand-900 transition-colors break-words sm:mt-2 sm:text-sm">
+          {item.value}
+        </p>
+      </div>
+
+      <div className="mt-4 flex items-center text-[11px] font-semibold text-brand-600 transition-all duration-200 group-hover:translate-x-1 sm:mt-6 sm:text-xs">
+        <span>İncele / Ulaş</span>
+        <svg className="ml-1.5 h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+        </svg>
+      </div>
+    </a>
+  );
+}
+
+function PhoneCard() {
+  return (
+    <div className="group relative flex flex-col justify-between rounded-2xl border border-brand-100 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-brand-200 sm:rounded-3xl sm:p-7">
+      <div>
+        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-colors duration-300 group-hover:bg-brand-600 group-hover:text-white sm:h-12 sm:w-12 sm:rounded-2xl">
+          <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.8" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.826-1.239-5.112-3.525-6.351-6.351l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+          </svg>
+        </div>
+
+        <p className="mt-4 text-[10px] font-semibold uppercase tracking-wider text-slate-400 sm:mt-6 sm:text-xs">
+          Telefon
+        </p>
+
+        <div className="mt-1.5 space-y-1 sm:mt-2">
+          {phoneNumbers.map((phone) => (
+            <a
+              key={phone.href}
+              href={phone.href}
+              className="block text-xs font-medium leading-relaxed text-slate-900 transition-colors hover:text-brand-700 sm:text-sm"
+            >
+              {phone.value}{" "}
+              <span className="font-normal text-slate-400">({phone.label})</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ContactInfoCards() {
   return (
     <Reveal>
@@ -81,42 +127,10 @@ export default function ContactInfoCards() {
           </div>
 
           <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-6 xl:grid-cols-4">
-            {contacts.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                target={item.isExternal ? "_blank" : undefined}
-                rel={item.isExternal ? "noopener noreferrer" : undefined}
-                className="group relative flex flex-col justify-between rounded-2xl border border-brand-100 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-brand-200 sm:rounded-3xl sm:p-7"
-              >
-                <div>
-
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-colors duration-300 group-hover:bg-brand-600 group-hover:text-white sm:h-12 sm:w-12 sm:rounded-2xl">
-                    {item.icon}
-                  </div>
-
-                  <p className="mt-4 text-[10px] font-semibold uppercase tracking-wider text-slate-400 group-hover:text-brand-700 transition-colors sm:mt-6 sm:text-xs">
-                    {item.label}
-                  </p>
-
-                  <p className="mt-1.5 text-xs font-medium leading-relaxed text-slate-900 group-hover:text-brand-900 transition-colors break-words sm:mt-2 sm:text-sm">
-                    {item.value}
-                  </p>
-                </div>
-
-                <div className="mt-4 flex items-center text-[11px] font-semibold text-brand-600 transition-all duration-200 group-hover:translate-x-1 sm:mt-6 sm:text-xs">
-                  <span>İncele / Ulaş</span>
-                  <svg
-                    className="ml-1.5 h-3.5 w-3.5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="2.5"
-                    stroke="currentColor"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                </div>
-              </a>
+            <ContactCard item={contacts[0]} />
+            <PhoneCard />
+            {contacts.slice(1).map((item) => (
+              <ContactCard key={item.label} item={item} />
             ))}
           </div>
         </div>
