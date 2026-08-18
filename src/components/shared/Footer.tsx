@@ -101,8 +101,24 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-slate-900 bg-slate-950/60 py-6 text-center text-xs text-slate-500">
-        © {new Date().getFullYear()} Zirve Kız Yurdu. Tüm hakları saklıdır.
+      <div className="border-t border-slate-900 bg-slate-950/60 py-6 px-4">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-center text-xs text-slate-500">
+            © {new Date().getFullYear()} Zirve Kız Yurdu. Tüm hakları saklıdır.
+          </p>
+          <p className="mt-2 text-center text-xs text-slate-600">
+            Bu site{" "}
+            <a
+              href="https://izmitsosyalmedia.com"
+              target="_blank"
+              rel="noreferrer"
+              className="font-medium text-brand-500 hover:text-brand-400 hover:underline transition-colors"
+            >
+              İzmit Sosyal Medya
+            </a>
+            {" "}tarafından tasarlanmıştır.
+          </p>
+        </div>
       </div>
     </footer>
   );

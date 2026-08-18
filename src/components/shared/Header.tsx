@@ -74,12 +74,31 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 overflow-visible border-b border-slate-200/80 bg-white/95 backdrop-blur-md transition-all">
-      <div className="mx-auto flex max-w-7xl items-center justify-between overflow-visible px-4 py-3.5 sm:px-6 lg:px-8">
-        <Link href="/" className="group flex items-center transition-colors hover:text-brand-600">
-          <div className="relative -my-11 h-32 w-32 overflow-hidden">
-            <Image src="/logo/zirve_logo.png" alt="Zirve Kız Yurdu" fill className="object-contain" />
+      <div className="mx-auto flex max-w-7xl items-center justify-between overflow-visible px-4 py-2.5 sm:px-6 lg:px-8">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <Link href="/" className="group flex items-center transition-colors hover:text-brand-600 shrink-0">
+            <div className="relative h-20 w-20 sm:h-24 sm:w-24 overflow-hidden">
+              <Image src="/logo/zirve_logo.png" alt="Zirve Kız Yurdu" fill className="object-contain" />
+            </div>
+          </Link>
+          <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2">
+            {supportLogos.map((logo) => (
+              <div
+                key={logo.src}
+                className="relative h-5 w-7 sm:h-6 sm:w-10 md:h-7 md:w-12 shrink-0"
+              >
+                <Image
+                  src={logo.src}
+                  alt={logo.name}
+                  fill
+                  sizes="56px"
+                  className="object-contain"
+                  title={logo.name}
+                />
+              </div>
+            ))}
           </div>
-        </Link>
+        </div>
 
         <nav className="hidden items-center gap-7 md:flex">
           {navItems.map((item) => {
@@ -107,8 +126,6 @@ export default function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          <SupportLogoStrip />
-
           <a
             href="tel:+905382123011"
             className="inline-flex items-center gap-2 rounded-full border border-mist-200 bg-mist-50/70 px-3.5 py-2 text-xs font-semibold text-slate-700 transition-all hover:border-brand-200 hover:bg-mist-100 hover:text-brand-600 lg:px-4 lg:py-2.5"
@@ -173,9 +190,6 @@ export default function Header() {
                 );
               })}
               <div className="mt-4 border-t border-slate-100 pt-3">
-                <div className="mb-3 flex items-center justify-center gap-2.5 rounded-xl border border-slate-100 bg-slate-50/80 px-2 py-2">
-                  <SupportLogoStrip compact />
-                </div>
                 <div className="flex flex-col gap-2.5">
                   <a
                     href="tel:+905382123011"
