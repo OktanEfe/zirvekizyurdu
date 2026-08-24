@@ -36,7 +36,7 @@ export default function FilterTabs({ active, onChange }: FilterTabsProps) {
         </div>
       </section>
 
-      <section className="pt-6 pb-3 sm:pt-12 sm:pb-4">
+      <section className="bg-white pt-6 pb-3 sm:pt-12 sm:pb-4">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="flex flex-wrap items-center gap-2 border-b border-slate-200 pb-4 sm:pb-6">

@@ -5,7 +5,7 @@ export default function Intro() {
   return (
     <div className="bg-slate-950 text-white">
 
-      <section className="relative min-h-[520px] w-full overflow-hidden sm:min-h-[600px] lg:min-h-[640px] flex items-end">
+      <section className="relative min-h-[520px] w-full overflow-hidden bg-slate-950 sm:min-h-[600px] lg:min-h-[640px] flex items-end">
 
         <Image
           src="/hakkimizda/hero.jpeg"

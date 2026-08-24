@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function OtherRooms() {
   return (
-    <section className="pb-24">
+    <section className="bg-white pb-24">
       <div className="mx-auto flex max-w-7xl justify-center px-4 sm:px-6 lg:px-8">
         <Link
           href="/odalarimiz"

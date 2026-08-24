@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { allRooms } from "@/lib/data";
 
-const baseUrl = "https://www.zirvekizogrenciyurdu.com";
+const baseUrl = "https://zirvekizogrenciyurdu.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [

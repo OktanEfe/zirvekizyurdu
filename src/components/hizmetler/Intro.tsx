@@ -28,7 +28,7 @@ export default function Intro() {
   return (
     <div className="bg-slate-950 text-white">
 
-      <section className="relative flex min-h-[440px] w-full items-end overflow-hidden sm:min-h-[500px] lg:min-h-[540px]">
+      <section className="relative flex min-h-[440px] w-full items-end overflow-hidden bg-slate-950 sm:min-h-[500px] lg:min-h-[540px]">
 
         <Image
           src="/hizmetler/hero.jpeg"

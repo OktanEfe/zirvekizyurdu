@@ -6,7 +6,7 @@ import WhatsappButton from "@/components/shared/WhatsappButton";
 import SmoothScrollProvider from "@/components/shared/SmoothScrollProvider";
 import "./globals.css";
 
-const siteUrl = "https://www.zirvekizogrenciyurdu.com";
+const siteUrl = "https://zirvekizogrenciyurdu.com";
 const ogDescription =
   "Kocaeli Umuttepe Zirve Kız Yurdu; Kocaeli Üniversitesi'ne 100 metre mesafede, 29 yıllık tecrübeyle güvenli ve konforlu kız öğrenci yurdu hizmeti sunar.";
 
@@ -59,8 +59,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="tr" className="h-full">
-      <body className="min-h-full flex min-h-screen flex-col font-sans antialiased">
+    <html lang="tr" className="h-full bg-mist-50">
+      <body className="min-h-full min-h-screen flex flex-col bg-mist-50 font-sans antialiased">
         <SmoothScrollProvider>
           <Header />
           <main className="flex-1">
