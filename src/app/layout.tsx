@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import Header from "@/components/shared/Header";
 import PageTransition from "@/components/shared/PageTransition";
 import Footer from "@/components/shared/Footer";
@@ -69,6 +70,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Footer />
           <WhatsappButton />
         </SmoothScrollProvider>
+        <Analytics />
       </body>
     </html>
   );
