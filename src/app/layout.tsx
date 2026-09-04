@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
 import Header from "@/components/shared/Header";
 import PageTransition from "@/components/shared/PageTransition";
 import Footer from "@/components/shared/Footer";
@@ -71,6 +72,21 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <WhatsappButton />
         </SmoothScrollProvider>
         <Analytics />
+
+        {/* Google tag (gtag.js) — Ads + Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17423616788"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17423616788');
+            gtag('config', 'G-L8CNTHSM99');
+          `}
+        </Script>
       </body>
     </html>
   );
